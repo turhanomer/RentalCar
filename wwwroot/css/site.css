@@ -1,0 +1,90 @@
+html {
+  font-size: 14px;
+  position: relative;
+  min-height: 100%;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+body {
+  margin-bottom: 340px; /* Footer yüksekliği + ekstra boşluk */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  white-space: nowrap;
+  line-height: 1.5;
+  padding: 30px 0;
+  background-color: #f8f9fa;
+}
+
+main {
+  flex: 1 0 auto;
+  margin-bottom: 60px; /* Footer'dan önce ekstra boşluk */
+}
+
+.footer a {
+  color: #666;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  color: #333;
+  text-decoration: underline;
+}
+
+.footer h5 {
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.footer p {
+  color: #666;
+}
+
+/* Card stilleri */
+.card {
+  transition: transform 0.2s;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card-img-top {
+  height: 200px;
+  object-fit: cover;
+}
+
+/* Navbar stilleri */
+.navbar {
+  background-color: #fff !important;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.navbar-brand {
+  font-weight: bold;
+  color: #333 !important;
+}
+
+.nav-link {
+  font-weight: 500;
+}
+
+.nav-link:hover {
+  color: #007bff !important;
+}

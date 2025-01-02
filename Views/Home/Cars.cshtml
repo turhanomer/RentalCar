@@ -1,0 +1,40 @@
+@model IEnumerable<RentalCar.Models.Car>
+
+@{
+    ViewData["Title"] = "Araçlarımız";
+}
+
+<div class="text-center mb-4">
+    <h1 class="display-4">Araçlarımız</h1>
+    <p class="lead">En uygun fiyatlarla araç kiralama hizmeti</p>
+</div>
+
+<div class="row">
+    @foreach (var car in Model)
+    {
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+                @if (!string.IsNullOrEmpty(car.ImageUrl))
+                {
+                    <img src="@car.ImageUrl" class="card-img-top" alt="@car.Brand @car.Model">
+                }
+                else
+                {
+                    <img src="~/images/default-car.jpg" class="card-img-top" alt="Default Car Image">
+                }
+                <div class="card-body">
+                    <h5 class="card-title">@car.Brand @car.Model</h5>
+                    <p class="card-text">
+                        <strong>Yıl:</strong> @car.Year<br />
+                        <strong>Günlük Fiyat:</strong> @car.DailyPrice.ToString("C")<br />
+                        @if (!string.IsNullOrEmpty(car.Description))
+                        {
+                            <small>@car.Description</small>
+                        }
+                    </p>
+                    <a asp-action="CarDetails" asp-route-id="@car.Id" class="btn btn-primary">Detaylar</a>
+                </div>
+            </div>
+        </div>
+    }
+</div> 

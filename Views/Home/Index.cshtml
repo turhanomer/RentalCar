@@ -1,0 +1,41 @@
+﻿@model IEnumerable<RentalCar.Models.Car>
+
+@{
+    ViewData["Title"] = "Anasayfa";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Hoş Geldiniz</h1>
+    <p class="lead">En uygun fiyatlarla araç kiralama hizmeti</p>
+</div>
+
+<div class="row mt-5">
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Geniş Araç Filosu</h5>
+                <p class="card-text">Her ihtiyaca uygun, bakımlı ve konforlu araçlarımızla hizmetinizdeyiz.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Uygun Fiyatlar</h5>
+                <p class="card-text">Rekabetçi fiyatlarımız ve esnek ödeme seçeneklerimizle bütçenize uygun çözümler.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">7/24 Destek</h5>
+                <p class="card-text">Müşteri hizmetlerimiz her an yanınızda, sorunlarınıza anında çözüm.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="text-center mt-5">
+    <a asp-action="Cars" class="btn btn-primary btn-lg">Araçlarımızı İncele</a>
+</div>

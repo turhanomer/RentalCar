@@ -1,0 +1,152 @@
+@model IEnumerable<RentalCar.Models.RentalRequest>
+
+@{
+    ViewData["Title"] = "Admin Dashboard";
+}
+
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2>Admin Dashboard</h2>
+        <div>
+            <a asp-action="ManageCars" class="btn btn-primary me-2">Araçları Yönet</a>
+            <a asp-action="Logout" class="btn btn-danger">Çıkış Yap</a>
+        </div>
+    </div>
+
+    @if (TempData["Success"] != null)
+    {
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            @TempData["Success"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+    }
+
+    @if (TempData["Error"] != null)
+    {
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            @TempData["Error"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+    }
+
+    <div class="card">
+        <div class="card-header">
+            <div class="d-flex justify-content-between align-items-center">
+                <h5 class="mb-0">Kiralama Talepleri</h5>
+                <div class="btn-group">
+                    <button type="button" class="btn btn-outline-primary btn-sm filter-btn active" data-status="all">Tümü</button>
+                    <button type="button" class="btn btn-outline-warning btn-sm filter-btn" data-status="Pending">Bekleyenler</button>
+                    <button type="button" class="btn btn-outline-success btn-sm filter-btn" data-status="Approved">Onaylananlar</button>
+                    <button type="button" class="btn btn-outline-danger btn-sm filter-btn" data-status="Rejected">Reddedilenler</button>
+                </div>
+            </div>
+        </div>
+        <div class="card-body">
+            @if (!Model.Any())
+            {
+                <div class="alert alert-info">
+                    Henüz kiralama talebi bulunmamaktadır.
+                </div>
+            }
+            else
+            {
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Araç</th>
+                                <th>Müşteri</th>
+                                <th>İletişim</th>
+                                <th>Tarihler</th>
+                                <th>Talep Tarihi</th>
+                                <th>Durum</th>
+                                <th>İşlemler</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var request in Model)
+                            {
+                                <tr class="rental-row" data-status="@request.Status">
+                                    <td>@request.Car.Brand @request.Car.Model</td>
+                                    <td>@request.CustomerName</td>
+                                    <td>
+                                        <small>
+                                            <div>@request.CustomerEmail</div>
+                                            <div>@request.CustomerPhone</div>
+                                        </small>
+                                    </td>
+                                    <td>
+                                        <small>
+                                            <div>Başlangıç: @request.StartDate.ToShortDateString()</div>
+                                            <div>Bitiş: @request.EndDate.ToShortDateString()</div>
+                                        </small>
+                                    </td>
+                                    <td>@request.RequestDate.ToShortDateString()</td>
+                                    <td>
+                                        <span class="badge bg-@(request.Status == "Pending" ? "warning" : 
+                                                              request.Status == "Approved" ? "success" : "danger")">
+                                            @(request.Status == "Pending" ? "Beklemede" :
+                                              request.Status == "Approved" ? "Onaylandı" : "Reddedildi")
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <div class="btn-group">
+                                            @if (request.Status == "Pending")
+                                            {
+                                                <form asp-action="UpdateRentalStatus" method="post" class="me-1">
+                                                    <input type="hidden" name="id" value="@request.Id" />
+                                                    <input type="hidden" name="status" value="Approved" />
+                                                    <button type="submit" class="btn btn-success btn-sm">
+                                                        <i class="fas fa-check"></i>
+                                                    </button>
+                                                </form>
+                                                <form asp-action="UpdateRentalStatus" method="post" class="me-1">
+                                                    <input type="hidden" name="id" value="@request.Id" />
+                                                    <input type="hidden" name="status" value="Rejected" />
+                                                    <button type="submit" class="btn btn-danger btn-sm">
+                                                        <i class="fas fa-times"></i>
+                                                    </button>
+                                                </form>
+                                            }
+                                            <form asp-action="DeleteRentalRequest" method="post" onsubmit="return confirm('Bu kiralama talebini silmek istediğinizden emin misiniz?');">
+                                                <input type="hidden" name="id" value="@request.Id" />
+                                                <button type="submit" class="btn btn-dark btn-sm">
+                                                    <i class="fas fa-trash"></i>
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Filtre butonları için event listener
+            document.querySelectorAll('.filter-btn').forEach(button => {
+                button.addEventListener('click', function() {
+                    // Aktif butonu güncelle
+                    document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Seçilen duruma göre satırları filtrele
+                    const status = this.dataset.status;
+                    document.querySelectorAll('.rental-row').forEach(row => {
+                        if (status === 'all' || row.dataset.status === status) {
+                            row.style.display = '';
+                        } else {
+                            row.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+} 
