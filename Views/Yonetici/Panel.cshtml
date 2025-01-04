@@ -1,15 +1,15 @@
-@model IEnumerable<RentalCar.Models.RentalRequest>
+@model IEnumerable<RentalCar.Models.KiralamaTalebi>
 
 @{
-    ViewData["Title"] = "Admin Dashboard";
+    ViewData["Title"] = "Yönetici Paneli";
 }
 
 <div class="container mt-4">
     <div class="d-flex justify-content-between align-items-center mb-4">
-        <h2>Admin Dashboard</h2>
+        <h2>Yönetici Paneli</h2>
         <div>
-            <a asp-action="ManageCars" class="btn btn-primary me-2">Araçları Yönet</a>
-            <a asp-action="Logout" class="btn btn-danger">Çıkış Yap</a>
+            <a asp-action="AracYonetimi" class="btn btn-primary me-2">Araçları Yönet</a>
+            <a asp-action="Cikis" class="btn btn-danger">Çıkış Yap</a>
         </div>
     </div>
 
@@ -35,9 +35,9 @@
                 <h5 class="mb-0">Kiralama Talepleri</h5>
                 <div class="btn-group">
                     <button type="button" class="btn btn-outline-primary btn-sm filter-btn active" data-status="all">Tümü</button>
-                    <button type="button" class="btn btn-outline-warning btn-sm filter-btn" data-status="Pending">Bekleyenler</button>
-                    <button type="button" class="btn btn-outline-success btn-sm filter-btn" data-status="Approved">Onaylananlar</button>
-                    <button type="button" class="btn btn-outline-danger btn-sm filter-btn" data-status="Rejected">Reddedilenler</button>
+                    <button type="button" class="btn btn-outline-warning btn-sm filter-btn" data-status="Beklemede">Bekleyenler</button>
+                    <button type="button" class="btn btn-outline-success btn-sm filter-btn" data-status="Onaylandı">Onaylananlar</button>
+                    <button type="button" class="btn btn-outline-danger btn-sm filter-btn" data-status="Reddedildi">Reddedilenler</button>
                 </div>
             </div>
         </div>
@@ -64,52 +64,51 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach (var request in Model)
+                            @foreach (var talep in Model)
                             {
-                                <tr class="rental-row" data-status="@request.Status">
-                                    <td>@request.Car.Brand @request.Car.Model</td>
-                                    <td>@request.CustomerName</td>
+                                <tr class="rental-row" data-status="@talep.Durum">
+                                    <td>@talep.Arac.Marka @talep.Arac.Model</td>
+                                    <td>@talep.MusteriAdi</td>
                                     <td>
                                         <small>
-                                            <div>@request.CustomerEmail</div>
-                                            <div>@request.CustomerPhone</div>
+                                            <div>@talep.MusteriEmail</div>
+                                            <div>@talep.MusteriTelefon</div>
                                         </small>
                                     </td>
                                     <td>
                                         <small>
-                                            <div>Başlangıç: @request.StartDate.ToShortDateString()</div>
-                                            <div>Bitiş: @request.EndDate.ToShortDateString()</div>
+                                            <div>Başlangıç: @talep.BaslangicTarihi.ToShortDateString()</div>
+                                            <div>Bitiş: @talep.BitisTarihi.ToShortDateString()</div>
                                         </small>
                                     </td>
-                                    <td>@request.RequestDate.ToShortDateString()</td>
+                                    <td>@talep.TalepTarihi.ToShortDateString()</td>
                                     <td>
-                                        <span class="badge bg-@(request.Status == "Pending" ? "warning" : 
-                                                              request.Status == "Approved" ? "success" : "danger")">
-                                            @(request.Status == "Pending" ? "Beklemede" :
-                                              request.Status == "Approved" ? "Onaylandı" : "Reddedildi")
+                                        <span class="badge bg-@(talep.Durum == "Beklemede" ? "warning" : 
+                                                              talep.Durum == "Onaylandı" ? "success" : "danger")">
+                                            @talep.Durum
                                         </span>
                                     </td>
                                     <td>
                                         <div class="btn-group">
-                                            @if (request.Status == "Pending")
+                                            @if (talep.Durum == "Beklemede")
                                             {
-                                                <form asp-action="UpdateRentalStatus" method="post" class="me-1">
-                                                    <input type="hidden" name="id" value="@request.Id" />
-                                                    <input type="hidden" name="status" value="Approved" />
+                                                <form asp-action="KiralamaDurumuGuncelle" method="post" class="me-1">
+                                                    <input type="hidden" name="id" value="@talep.Id" />
+                                                    <input type="hidden" name="durum" value="Onaylandı" />
                                                     <button type="submit" class="btn btn-success btn-sm">
                                                         <i class="fas fa-check"></i>
                                                     </button>
                                                 </form>
-                                                <form asp-action="UpdateRentalStatus" method="post" class="me-1">
-                                                    <input type="hidden" name="id" value="@request.Id" />
-                                                    <input type="hidden" name="status" value="Rejected" />
+                                                <form asp-action="KiralamaDurumuGuncelle" method="post" class="me-1">
+                                                    <input type="hidden" name="id" value="@talep.Id" />
+                                                    <input type="hidden" name="durum" value="Reddedildi" />
                                                     <button type="submit" class="btn btn-danger btn-sm">
                                                         <i class="fas fa-times"></i>
                                                     </button>
                                                 </form>
                                             }
-                                            <form asp-action="DeleteRentalRequest" method="post" onsubmit="return confirm('Bu kiralama talebini silmek istediğinizden emin misiniz?');">
-                                                <input type="hidden" name="id" value="@request.Id" />
+                                            <form asp-action="KiralamaTalebiSil" method="post" onsubmit="return confirm('Bu kiralama talebini silmek istediğinizden emin misiniz?');">
+                                                <input type="hidden" name="id" value="@talep.Id" />
                                                 <button type="submit" class="btn btn-dark btn-sm">
                                                     <i class="fas fa-trash"></i>
                                                 </button>
@@ -137,9 +136,9 @@
                     this.classList.add('active');
                     
                     // Seçilen duruma göre satırları filtrele
-                    const status = this.dataset.status;
+                    const durum = this.dataset.status;
                     document.querySelectorAll('.rental-row').forEach(row => {
-                        if (status === 'all' || row.dataset.status === status) {
+                        if (durum === 'all' || row.dataset.status === durum) {
                             row.style.display = '';
                         } else {
                             row.style.display = 'none';

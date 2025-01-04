@@ -1,15 +1,15 @@
-@model RentalCar.Models.Car
+@model RentalCar.Models.Arac
 
 @{
-    ViewData["Title"] = $"{Model.Brand} {Model.Model}";
+    ViewData["Title"] = $"{Model.Marka} {Model.Model}";
 }
 
 <div class="container mt-4">
     <div class="row">
         <div class="col-md-6">
-            @if (!string.IsNullOrEmpty(Model.ImageUrl))
+            @if (!string.IsNullOrEmpty(Model.ResimUrl))
             {
-                <img src="@Model.ImageUrl" class="img-fluid rounded" alt="@Model.Brand @Model.Model">
+                <img src="@Model.ResimUrl" class="img-fluid rounded" alt="@Model.Marka @Model.Model">
             }
             else
             {
@@ -17,47 +17,47 @@
             }
         </div>
         <div class="col-md-6">
-            <h2>@Model.Brand @Model.Model</h2>
-            <p class="lead">@Model.Year Model</p>
-            <h4 class="text-primary">@Model.DailyPrice.ToString("C") / Gün</h4>
-            @if (!string.IsNullOrEmpty(Model.Description))
+            <h2>@Model.Marka @Model.Model</h2>
+            <p class="lead">@Model.Yil Model</p>
+            <h4 class="text-primary">@Model.GunlukFiyat.ToString("C") / Gün</h4>
+            @if (!string.IsNullOrEmpty(Model.Aciklama))
             {
-                <p>@Model.Description</p>
+                <p>@Model.Aciklama</p>
             }
 
-            @if (Model.IsAvailable)
+            @if (Model.Musait)
             {
                 <div class="card mt-4">
                     <div class="card-header">
                         <h5 class="mb-0">Kiralama Talebi</h5>
                     </div>
                     <div class="card-body">
-                        <form asp-action="SubmitRentalRequest" method="post">
-                            <input type="hidden" name="CarId" value="@Model.Id" />
+                        <form asp-action="KiralamaTalebiGonder" method="post">
+                            <input type="hidden" name="aracId" value="@Model.Id" />
                             
                             <div class="mb-3">
                                 <label class="form-label">Ad Soyad</label>
-                                <input type="text" name="CustomerName" class="form-control" required />
+                                <input type="text" name="musteriAdi" class="form-control" required />
                             </div>
                             
                             <div class="mb-3">
                                 <label class="form-label">Email</label>
-                                <input type="email" name="CustomerEmail" class="form-control" required />
+                                <input type="email" name="musteriEmail" class="form-control" required />
                             </div>
                             
                             <div class="mb-3">
                                 <label class="form-label">Telefon</label>
-                                <input type="tel" name="CustomerPhone" class="form-control" required />
+                                <input type="tel" name="musteriTelefon" class="form-control" required />
                             </div>
                             
                             <div class="mb-3">
                                 <label class="form-label">Başlangıç Tarihi</label>
-                                <input type="date" name="StartDate" class="form-control" required min="@DateTime.Now.ToString("yyyy-MM-dd")" />
+                                <input type="date" name="baslangicTarihi" class="form-control" required min="@DateTime.Now.ToString("yyyy-MM-dd")" />
                             </div>
                             
                             <div class="mb-3">
                                 <label class="form-label">Bitiş Tarihi</label>
-                                <input type="date" name="EndDate" class="form-control" required />
+                                <input type="date" name="bitisTarihi" class="form-control" required />
                             </div>
                             
                             <button type="submit" class="btn btn-primary">Kiralama Talebi Gönder</button>
@@ -78,11 +78,11 @@
 @section Scripts {
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            var startDateInput = document.querySelector('input[name="StartDate"]');
-            var endDateInput = document.querySelector('input[name="EndDate"]');
+            var baslangicTarihiInput = document.querySelector('input[name="baslangicTarihi"]');
+            var bitisTarihiInput = document.querySelector('input[name="bitisTarihi"]');
             
-            startDateInput.addEventListener('change', function() {
-                endDateInput.min = this.value;
+            baslangicTarihiInput.addEventListener('change', function() {
+                bitisTarihiInput.min = this.value;
             });
         });
     </script>

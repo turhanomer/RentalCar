@@ -1,12 +1,12 @@
 @{
-    ViewData["Title"] = "Admin Girişi";
+    ViewData["Title"] = "Yönetici Girişi";
 }
 
 <div class="row justify-content-center">
     <div class="col-md-6">
         <div class="card">
             <div class="card-header">
-                <h3 class="text-center">Admin Girişi</h3>
+                <h3 class="text-center">Yönetici Girişi</h3>
             </div>
             <div class="card-body">
                 @if (ViewBag.Error != null)
@@ -17,12 +17,12 @@
                 }
                 <form method="post">
                     <div class="mb-3">
-                        <label for="username" class="form-label">Kullanıcı Adı</label>
-                        <input type="text" class="form-control" id="username" name="username" required>
+                        <label for="kullaniciAdi" class="form-label">Kullanıcı Adı</label>
+                        <input type="text" class="form-control" id="kullaniciAdi" name="kullaniciAdi" required>
                     </div>
                     <div class="mb-3">
-                        <label for="password" class="form-label">Şifre</label>
-                        <input type="password" class="form-control" id="password" name="password" required>
+                        <label for="sifre" class="form-label">Şifre</label>
+                        <input type="password" class="form-control" id="sifre" name="sifre" required>
                     </div>
                     <div class="d-grid">
                         <button type="submit" class="btn btn-primary">Giriş Yap</button>

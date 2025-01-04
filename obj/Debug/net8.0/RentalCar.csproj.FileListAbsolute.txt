@@ -166,3 +166,4 @@ C:\Users\omert\Desktop\RentalCar\RentalCar\obj\Debug\net8.0\refint\RentalCar.dll
 C:\Users\omert\Desktop\RentalCar\RentalCar\obj\Debug\net8.0\RentalCar.pdb
 C:\Users\omert\Desktop\RentalCar\RentalCar\obj\Debug\net8.0\RentalCar.genruntimeconfig.cache
 C:\Users\omert\Desktop\RentalCar\RentalCar\obj\Debug\net8.0\ref\RentalCar.dll
+C:\Users\omert\Desktop\RentalCar\RentalCar\obj\Debug\net8.0\RentalCar.sourcelink.json

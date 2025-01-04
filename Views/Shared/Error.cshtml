@@ -1,15 +1,15 @@
-﻿@model ErrorViewModel
+﻿@model HataViewModel
 @{
-    ViewData["Title"] = "Error";
+    ViewData["Title"] = "Hata";
 }
 
-<h1 class="text-danger">Error.</h1>
-<h2 class="text-danger">An error occurred while processing your request.</h2>
+<h1 class="text-danger">Hata.</h1>
+<h2 class="text-danger">İsteğiniz işlenirken bir hata oluştu.</h2>
 
-@if (Model.ShowRequestId)
+@if (Model.TalepIdGoster)
 {
     <p>
-        <strong>Request ID:</strong> <code>@Model.RequestId</code>
+        <strong>Talep ID:</strong> <code>@Model.TalepId</code>
     </p>
 }
 

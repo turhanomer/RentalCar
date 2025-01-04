@@ -1,4 +1,4 @@
-@model IEnumerable<RentalCar.Models.Car>
+@model IEnumerable<RentalCar.Models.Arac>
 
 @{
     ViewData["Title"] = "Araçlarımız";
@@ -10,29 +10,29 @@
 </div>
 
 <div class="row">
-    @foreach (var car in Model)
+    @foreach (var arac in Model)
     {
         <div class="col-md-4 mb-4">
             <div class="card h-100">
-                @if (!string.IsNullOrEmpty(car.ImageUrl))
+                @if (!string.IsNullOrEmpty(arac.ResimUrl))
                 {
-                    <img src="@car.ImageUrl" class="card-img-top" alt="@car.Brand @car.Model">
+                    <img src="@arac.ResimUrl" class="card-img-top" alt="@arac.Marka @arac.Model">
                 }
                 else
                 {
                     <img src="~/images/default-car.jpg" class="card-img-top" alt="Default Car Image">
                 }
                 <div class="card-body">
-                    <h5 class="card-title">@car.Brand @car.Model</h5>
+                    <h5 class="card-title">@arac.Marka @arac.Model</h5>
                     <p class="card-text">
-                        <strong>Yıl:</strong> @car.Year<br />
-                        <strong>Günlük Fiyat:</strong> @car.DailyPrice.ToString("C")<br />
-                        @if (!string.IsNullOrEmpty(car.Description))
+                        <strong>Yıl:</strong> @arac.Yil<br />
+                        <strong>Günlük Fiyat:</strong> @arac.GunlukFiyat.ToString("C")<br />
+                        @if (!string.IsNullOrEmpty(arac.Aciklama))
                         {
-                            <small>@car.Description</small>
+                            <small>@arac.Aciklama</small>
                         }
                     </p>
-                    <a asp-action="CarDetails" asp-route-id="@car.Id" class="btn btn-primary">Detaylar</a>
+                    <a asp-action="AracDetay" asp-route-id="@arac.Id" class="btn btn-primary">Detaylar</a>
                 </div>
             </div>
         </div>
