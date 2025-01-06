@@ -1,10 +1,10 @@
 @model RentalCar.Models.Arac
 
 @{
-    ViewData["Title"] = $"{Model.Marka} {Model.Model}";
+    ViewData["Title"] = $"{Model.Marka} {Model.Model} Detay";
 }
 
-<div class="container mt-4">
+<div class="container">
     <div class="row">
         <div class="col-md-6">
             @if (!string.IsNullOrEmpty(Model.ResimUrl))
@@ -13,53 +13,54 @@
             }
             else
             {
-                <img src="~/images/default-car.jpg" class="img-fluid rounded" alt="Default Car Image">
+                <img src="/images/default-car.jpg" class="img-fluid rounded" alt="Varsayılan Araç Resmi">
             }
         </div>
         <div class="col-md-6">
-            <h2>@Model.Marka @Model.Model</h2>
-            <p class="lead">@Model.Yil Model</p>
-            <h4 class="text-primary">@Model.GunlukFiyat.ToString("C") / Gün</h4>
-            @if (!string.IsNullOrEmpty(Model.Aciklama))
-            {
-                <p>@Model.Aciklama</p>
-            }
+            <h2>@Model.Marka @Model.Model (@Model.Yil)</h2>
+            <div class="mb-4">
+                <h4>Araç Özellikleri</h4>
+                <ul class="list-unstyled">
+                    <li><strong>Kapasite:</strong> @Model.Kapasite Kişilik</li>
+                    <li><strong>Yakıt Türü:</strong> @Model.YakitTuru</li>
+                    <li><strong>Vites Türü:</strong> @Model.VitesTuru</li>
+                    <li><strong>Günlük Fiyat:</strong> @Model.GunlukFiyat.ToString("C")</li>
+                    <li>
+                        <strong>Durum:</strong>
+                        <span class="badge bg-@(Model.Musait ? "success" : "danger")">
+                            @(Model.Musait ? "Müsait" : "Kirada")
+                        </span>
+                    </li>
+                </ul>
+            </div>
 
             @if (Model.Musait)
             {
-                <div class="card mt-4">
-                    <div class="card-header">
-                        <h5 class="mb-0">Kiralama Talebi</h5>
-                    </div>
+                <div class="card">
                     <div class="card-body">
+                        <h4 class="card-title">Kiralama Talebi</h4>
                         <form asp-action="KiralamaTalebiGonder" method="post">
                             <input type="hidden" name="aracId" value="@Model.Id" />
-                            
                             <div class="mb-3">
                                 <label class="form-label">Ad Soyad</label>
-                                <input type="text" name="musteriAdi" class="form-control" required />
+                                <input type="text" class="form-control" name="musteriAdi" required>
                             </div>
-                            
                             <div class="mb-3">
-                                <label class="form-label">Email</label>
-                                <input type="email" name="musteriEmail" class="form-control" required />
+                                <label class="form-label">E-posta</label>
+                                <input type="email" class="form-control" name="musteriEmail" required>
                             </div>
-                            
                             <div class="mb-3">
                                 <label class="form-label">Telefon</label>
-                                <input type="tel" name="musteriTelefon" class="form-control" required />
+                                <input type="tel" class="form-control" name="musteriTelefon" required>
                             </div>
-                            
                             <div class="mb-3">
                                 <label class="form-label">Başlangıç Tarihi</label>
-                                <input type="date" name="baslangicTarihi" class="form-control" required min="@DateTime.Now.ToString("yyyy-MM-dd")" />
+                                <input type="date" class="form-control" name="baslangicTarihi" required min="@DateTime.Now.ToString("yyyy-MM-dd")">
                             </div>
-                            
                             <div class="mb-3">
                                 <label class="form-label">Bitiş Tarihi</label>
-                                <input type="date" name="bitisTarihi" class="form-control" required />
+                                <input type="date" class="form-control" name="bitisTarihi" required min="@DateTime.Now.ToString("yyyy-MM-dd")">
                             </div>
-                            
                             <button type="submit" class="btn btn-primary">Kiralama Talebi Gönder</button>
                         </form>
                     </div>
@@ -67,7 +68,7 @@
             }
             else
             {
-                <div class="alert alert-warning mt-4">
+                <div class="alert alert-warning">
                     Bu araç şu anda kiralamaya uygun değil.
                 </div>
             }
@@ -78,11 +79,14 @@
 @section Scripts {
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            var baslangicTarihiInput = document.querySelector('input[name="baslangicTarihi"]');
-            var bitisTarihiInput = document.querySelector('input[name="bitisTarihi"]');
-            
-            baslangicTarihiInput.addEventListener('change', function() {
-                bitisTarihiInput.min = this.value;
+            var baslangicTarihi = document.querySelector('input[name="baslangicTarihi"]');
+            var bitisTarihi = document.querySelector('input[name="bitisTarihi"]');
+
+            baslangicTarihi.addEventListener('change', function () {
+                bitisTarihi.min = this.value;
+                if (bitisTarihi.value && bitisTarihi.value < this.value) {
+                    bitisTarihi.value = this.value;
+                }
             });
         });
     </script>

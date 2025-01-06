@@ -38,6 +38,9 @@
                             <th>Model</th>
                             <th>Yıl</th>
                             <th>Günlük Fiyat</th>
+                            <th>Kapasite</th>
+                            <th>Yakıt Türü</th>
+                            <th>Vites</th>
                             <th>Durum</th>
                             <th>İşlemler</th>
                         </tr>
@@ -50,13 +53,16 @@
                                 <td>@arac.Model</td>
                                 <td>@arac.Yil</td>
                                 <td>@arac.GunlukFiyat.ToString("C")</td>
+                                <td>@arac.Kapasite Kişilik</td>
+                                <td>@arac.YakitTuru</td>
+                                <td>@arac.VitesTuru</td>
                                 <td>
                                     <span class="badge bg-@(arac.Musait ? "success" : "danger")">
                                         @(arac.Musait ? "Müsait" : "Kirada")
                                     </span>
                                 </td>
                                 <td>
-                                    <button class="btn btn-primary btn-sm" onclick="aracDuzenle(@arac.Id, '@arac.Marka', '@arac.Model', @arac.Yil, @arac.GunlukFiyat, '@arac.ResimUrl', '@arac.Aciklama', @arac.Musait.ToString().ToLower())">Düzenle</button>
+                                    <button class="btn btn-primary btn-sm" onclick="aracDuzenle(@arac.Id, '@arac.Marka', '@arac.Model', @arac.Yil, @arac.GunlukFiyat, '@arac.ResimUrl', @arac.Kapasite, '@arac.YakitTuru', '@arac.VitesTuru', @arac.Musait.ToString().ToLower())">Düzenle</button>
                                     <button class="btn btn-danger btn-sm" onclick="aracSil(@arac.Id)">Sil</button>
                                 </td>
                             </tr>
@@ -99,8 +105,28 @@
                         <input type="url" class="form-control" name="ResimUrl">
                     </div>
                     <div class="mb-3">
-                        <label class="form-label">Açıklama</label>
-                        <textarea class="form-control" name="Aciklama" rows="3"></textarea>
+                        <label class="form-label">Kapasite (Kişi)</label>
+                        <input type="number" class="form-control" name="Kapasite" required min="1" max="50">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Yakıt Türü</label>
+                        <select class="form-select" name="YakitTuru" required>
+                            <option value="">Seçiniz</option>
+                            <option value="Benzin">Benzin</option>
+                            <option value="Dizel">Dizel</option>
+                            <option value="LPG">LPG</option>
+                            <option value="Elektrik">Elektrik</option>
+                            <option value="Hibrit">Hibrit</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Vites Türü</label>
+                        <select class="form-select" name="VitesTuru" required>
+                            <option value="">Seçiniz</option>
+                            <option value="Manuel">Manuel</option>
+                            <option value="Otomatik">Otomatik</option>
+                            <option value="Yarı Otomatik">Yarı Otomatik</option>
+                        </select>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -144,8 +170,28 @@
                         <input type="url" class="form-control" id="duzenleResimUrl" name="ResimUrl">
                     </div>
                     <div class="mb-3">
-                        <label class="form-label">Açıklama</label>
-                        <textarea class="form-control" id="duzenleAciklama" name="Aciklama" rows="3"></textarea>
+                        <label class="form-label">Kapasite (Kişi)</label>
+                        <input type="number" class="form-control" id="duzenleKapasite" name="Kapasite" required min="1" max="50">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Yakıt Türü</label>
+                        <select class="form-select" id="duzenleYakitTuru" name="YakitTuru" required>
+                            <option value="">Seçiniz</option>
+                            <option value="Benzin">Benzin</option>
+                            <option value="Dizel">Dizel</option>
+                            <option value="LPG">LPG</option>
+                            <option value="Elektrik">Elektrik</option>
+                            <option value="Hibrit">Hibrit</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Vites Türü</label>
+                        <select class="form-select" id="duzenleVitesTuru" name="VitesTuru" required>
+                            <option value="">Seçiniz</option>
+                            <option value="Manuel">Manuel</option>
+                            <option value="Otomatik">Otomatik</option>
+                            <option value="Yarı Otomatik">Yarı Otomatik</option>
+                        </select>
                     </div>
                     <div class="mb-3">
                         <div class="form-check">
@@ -167,14 +213,16 @@
 
 @section Scripts {
     <script>
-        function aracDuzenle(id, marka, model, yil, gunlukFiyat, resimUrl, aciklama, musait) {
+        function aracDuzenle(id, marka, model, yil, gunlukFiyat, resimUrl, kapasite, yakitTuru, vitesTuru, musait) {
             document.getElementById('duzenleId').value = id;
             document.getElementById('duzenleMarka').value = marka;
             document.getElementById('duzenleModel').value = model;
             document.getElementById('duzenleYil').value = yil;
             document.getElementById('duzenleGunlukFiyat').value = gunlukFiyat;
             document.getElementById('duzenleResimUrl').value = resimUrl || '';
-            document.getElementById('duzenleAciklama').value = aciklama || '';
+            document.getElementById('duzenleKapasite').value = kapasite;
+            document.getElementById('duzenleYakitTuru').value = yakitTuru;
+            document.getElementById('duzenleVitesTuru').value = vitesTuru;
             document.getElementById('duzenleMusait').checked = musait === 'true';
             
             new bootstrap.Modal(document.getElementById('aracDuzenleModal')).show();

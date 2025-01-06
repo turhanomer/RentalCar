@@ -12,8 +12,8 @@ using RentalCar.Data;
 namespace RentalCar.Migrations
 {
     [DbContext(typeof(VeriTabaniContext))]
-    [Migration("20250104180600_UpdateTableNames")]
-    partial class UpdateTableNames
+    [Migration("20250106180814_UpdateCarProperties")]
+    partial class UpdateCarProperties
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -33,13 +33,13 @@ namespace RentalCar.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Aciklama")
-                        .HasColumnType("nvarchar(max)")
-                        .HasColumnName("Description");
-
                     b.Property<decimal>("GunlukFiyat")
                         .HasColumnType("decimal(18,2)")
                         .HasColumnName("DailyPrice");
+
+                    b.Property<int>("Kapasite")
+                        .HasColumnType("int")
+                        .HasColumnName("Capacity");
 
                     b.Property<string>("Marka")
                         .IsRequired()
@@ -58,6 +58,18 @@ namespace RentalCar.Migrations
                     b.Property<string>("ResimUrl")
                         .HasColumnType("nvarchar(max)")
                         .HasColumnName("ImageUrl");
+
+                    b.Property<string>("VitesTuru")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)")
+                        .HasColumnName("Transmission");
+
+                    b.Property<string>("YakitTuru")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)")
+                        .HasColumnName("FuelType");
 
                     b.Property<int>("Yil")
                         .HasColumnType("int")

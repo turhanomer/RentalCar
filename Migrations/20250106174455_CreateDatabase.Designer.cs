@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using RentalCar.Data;
 
@@ -11,9 +12,11 @@ using RentalCar.Data;
 namespace RentalCar.Migrations
 {
     [DbContext(typeof(VeriTabaniContext))]
-    partial class VeriTabaniContextModelSnapshot : ModelSnapshot
+    [Migration("20250106174455_CreateDatabase")]
+    partial class CreateDatabase
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -30,13 +33,13 @@ namespace RentalCar.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<string>("Aciklama")
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("Description");
+
                     b.Property<decimal>("GunlukFiyat")
                         .HasColumnType("decimal(18,2)")
                         .HasColumnName("DailyPrice");
-
-                    b.Property<int>("Kapasite")
-                        .HasColumnType("int")
-                        .HasColumnName("Capacity");
 
                     b.Property<string>("Marka")
                         .IsRequired()
@@ -55,18 +58,6 @@ namespace RentalCar.Migrations
                     b.Property<string>("ResimUrl")
                         .HasColumnType("nvarchar(max)")
                         .HasColumnName("ImageUrl");
-
-                    b.Property<string>("VitesTuru")
-                        .IsRequired()
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)")
-                        .HasColumnName("Transmission");
-
-                    b.Property<string>("YakitTuru")
-                        .IsRequired()
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)")
-                        .HasColumnName("FuelType");
 
                     b.Property<int>("Yil")
                         .HasColumnType("int")

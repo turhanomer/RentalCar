@@ -5,7 +5,7 @@
 namespace RentalCar.Migrations
 {
     /// <inheritdoc />
-    public partial class UpdateTableNames : Migration
+    public partial class CreateDatabase : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

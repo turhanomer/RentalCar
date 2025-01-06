@@ -30,8 +30,19 @@ namespace RentalCar.Models
         
         [Column("IsAvailable")]
         public bool Musait { get; set; } = true;
-        
-        [Column("Description")]
-        public string? Aciklama { get; set; }
+
+        [Required]
+        [Column("Capacity")]
+        public int Kapasite { get; set; }
+
+        [Required]
+        [Column("FuelType")]
+        [StringLength(20)]
+        public string YakitTuru { get; set; } = string.Empty;
+
+        [Required]
+        [Column("Transmission")]
+        [StringLength(20)]
+        public string VitesTuru { get; set; } = string.Empty;
     }
 } 

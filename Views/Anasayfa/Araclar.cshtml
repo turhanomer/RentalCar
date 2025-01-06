@@ -4,37 +4,39 @@
     ViewData["Title"] = "Araçlarımız";
 }
 
-<div class="text-center mb-4">
-    <h1 class="display-4">Araçlarımız</h1>
-    <p class="lead">En uygun fiyatlarla araç kiralama hizmeti</p>
-</div>
+<div class="container">
+    <h2 class="mb-4">Araçlarımız</h2>
 
-<div class="row">
-    @foreach (var arac in Model)
-    {
-        <div class="col-md-4 mb-4">
-            <div class="card h-100">
-                @if (!string.IsNullOrEmpty(arac.ResimUrl))
-                {
-                    <img src="@arac.ResimUrl" class="card-img-top" alt="@arac.Marka @arac.Model">
-                }
-                else
-                {
-                    <img src="~/images/default-car.jpg" class="card-img-top" alt="Default Car Image">
-                }
-                <div class="card-body">
-                    <h5 class="card-title">@arac.Marka @arac.Model</h5>
-                    <p class="card-text">
-                        <strong>Yıl:</strong> @arac.Yil<br />
-                        <strong>Günlük Fiyat:</strong> @arac.GunlukFiyat.ToString("C")<br />
-                        @if (!string.IsNullOrEmpty(arac.Aciklama))
-                        {
-                            <small>@arac.Aciklama</small>
-                        }
-                    </p>
-                    <a asp-action="AracDetay" asp-route-id="@arac.Id" class="btn btn-primary">Detaylar</a>
+    <div class="row">
+        @foreach (var arac in Model)
+        {
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    @if (!string.IsNullOrEmpty(arac.ResimUrl))
+                    {
+                        <img src="@arac.ResimUrl" class="card-img-top" alt="@arac.Marka @arac.Model">
+                    }
+                    else
+                    {
+                        <img src="/images/default-car.jpg" class="card-img-top" alt="Varsayılan Araç Resmi">
+                    }
+                    <div class="card-body">
+                        <h5 class="card-title">@arac.Marka @arac.Model (@arac.Yil)</h5>
+                        <p class="card-text">
+                            <strong>Günlük Fiyat:</strong> @arac.GunlukFiyat.ToString("C")<br>
+                            <strong>Kapasite:</strong> @arac.Kapasite Kişilik<br>
+                            <strong>Yakıt:</strong> @arac.YakitTuru<br>
+                            <strong>Vites:</strong> @arac.VitesTuru
+                        </p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <a href="@Url.Action("AracDetay", new { id = arac.Id })" class="btn btn-primary">Detaylar</a>
+                            <span class="badge bg-@(arac.Musait ? "success" : "danger")">
+                                @(arac.Musait ? "Müsait" : "Kirada")
+                            </span>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    }
+        }
+    </div>
 </div> 
