@@ -2,6 +2,42 @@
 /* Please see documentation at https://learn.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */
 
+.top-header[b-3q83gye69j] {
+    background-color: #4C585B;
+    color: #fff;
+}
+
+.top-header a[b-3q83gye69j] {
+    color: #fff;
+    text-decoration: none;
+}
+
+.navbar[b-3q83gye69j] {
+    background-color: #FFFFFF !important;
+    padding: 0.8rem 0;
+}
+
+.navbar .nav-link[b-3q83gye69j] {
+    color: #333 !important;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.navbar .nav-link:hover[b-3q83gye69j] {
+    color: #4C585B !important;
+}
+
+.btn-outline-dark[b-3q83gye69j] {
+    border-color: #4C585B;
+    color: #4C585B;
+}
+
+.btn-outline-dark:hover[b-3q83gye69j] {
+    background-color: #4C585B;
+    border-color: #4C585B;
+    color: #fff;
+}
+
 a.navbar-brand[b-3q83gye69j] {
   white-space: normal;
   text-align: center;
@@ -41,9 +77,20 @@ button.accept-policy[b-3q83gye69j] {
 }
 
 .footer[b-3q83gye69j] {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  white-space: nowrap;
-  line-height: 60px;
+  background-color: #f8f9fa;
+  border-top: 1px solid #dee2e6;
+}
+
+.footer .social-links a[b-3q83gye69j] {
+  color: #6c757d;
+  transition: color 0.3s ease;
+}
+
+.footer .social-links a:hover[b-3q83gye69j] {
+  color: #343a40;
+  text-decoration: none;
+}
+
+.footer .text-muted[b-3q83gye69j] {
+  color: #6c757d !important;
 }

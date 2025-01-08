@@ -39,7 +39,7 @@ namespace RentalCar.Controllers
             return true;
         }
 
-        private async Task<string?> ResimKaydet(IFormFile file)
+        private async Task<string?> ResimKaydet(IFormFile? file)
         {
             if (file == null || file.Length == 0) return null;
 
@@ -149,7 +149,7 @@ namespace RentalCar.Controllers
 
             try
             {
-                if (!ResimGecerliMi(arac.ResimDosyasi))
+                if (arac.ResimDosyasi != null && !ResimGecerliMi(arac.ResimDosyasi))
                 {
                     return RedirectToAction(nameof(AracYonetimi));
                 }
@@ -178,12 +178,6 @@ namespace RentalCar.Controllers
                 return RedirectToAction(nameof(Giris));
             }
 
-            if (!ModelState.IsValid)
-            {
-                TempData["Error"] = "Lütfen tüm zorunlu alanları doldurun.";
-                return RedirectToAction(nameof(AracYonetimi));
-            }
-
             try
             {
                 var mevcutArac = await _veriTabani.Araclar
@@ -196,22 +190,23 @@ namespace RentalCar.Controllers
                     return RedirectToAction(nameof(AracYonetimi));
                 }
 
-                if (!ResimGecerliMi(arac.ResimDosyasi))
+                if (arac.ResimDosyasi != null && !ResimGecerliMi(arac.ResimDosyasi))
                 {
                     return RedirectToAction(nameof(AracYonetimi));
                 }
 
+                // Mevcut resmi koru eğer yeni resim yüklenmediyse
                 if (arac.ResimDosyasi != null)
                 {
                     ResimSil(mevcutArac.ResimUrl);
                     arac.ResimUrl = await ResimKaydet(arac.ResimDosyasi);
                 }
-                else
+                else if (string.IsNullOrEmpty(arac.ResimUrl))
                 {
                     arac.ResimUrl = mevcutArac.ResimUrl;
                 }
 
-                _veriTabani.Araclar.Update(arac);
+                _veriTabani.Entry(arac).State = EntityState.Modified;
                 await _veriTabani.SaveChangesAsync();
 
                 TempData["Success"] = "Araç başarıyla güncellendi.";
@@ -311,6 +306,36 @@ namespace RentalCar.Controllers
         {
             HttpContext.Session.Clear();
             return RedirectToAction(nameof(Giris));
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> KiralamaTalebiSil(int id)
+        {
+            if (HttpContext.Session.GetString("YoneticiId") == null)
+            {
+                return RedirectToAction(nameof(Giris));
+            }
+
+            try
+            {
+                var talep = await _veriTabani.KiralamaTalepleri.FindAsync(id);
+                if (talep == null)
+                {
+                    TempData["Error"] = "Kiralama talebi bulunamadı.";
+                    return RedirectToAction(nameof(Panel));
+                }
+
+                _veriTabani.KiralamaTalepleri.Remove(talep);
+                await _veriTabani.SaveChangesAsync();
+
+                TempData["Success"] = "Kiralama talebi başarıyla silindi.";
+            }
+            catch (Exception ex)
+            {
+                TempData["Error"] = "Kiralama talebi silinirken bir hata oluştu: " + ex.Message;
+            }
+
+            return RedirectToAction(nameof(Panel));
         }
     }
 } 

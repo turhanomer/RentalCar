@@ -17,9 +17,14 @@ namespace RentalCar.Controllers
             _veriTabani = veriTabani;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            var araclar = await _veriTabani.Araclar
+                .Where(a => a.Musait)
+                .OrderByDescending(a => a.Id)
+                .Take(6)  // Öne çıkan araçlar için en son eklenen 6 aracı al
+                .ToListAsync();
+            return View(araclar);
         }
 
         public IActionResult Iletisim()
@@ -29,7 +34,7 @@ namespace RentalCar.Controllers
 
         public async Task<IActionResult> Araclar()
         {
-            var araclar = await _veriTabani.Araclar.Where(c => c.Musait).ToListAsync();
+            var araclar = await _veriTabani.Araclar.ToListAsync();
             return View(araclar);
         }
 
@@ -77,8 +82,8 @@ namespace RentalCar.Controllers
                 _veriTabani.KiralamaTalepleri.Add(kiralamaTalebi);
                 await _veriTabani.SaveChangesAsync();
 
-                TempData["Success"] = "Kiralama talebiniz başarıyla alınmıştır.";
-                return RedirectToAction(nameof(Index));
+                TempData["Success"] = $"Sayın {musteriAdi}, kiralama talebiniz başarıyla alınmıştır. En kısa sürede sizinle iletişime geçeceğiz.";
+                return RedirectToAction(nameof(Araclar));
             }
             catch (Exception ex)
             {

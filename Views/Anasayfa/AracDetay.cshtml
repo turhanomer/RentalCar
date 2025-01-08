@@ -55,11 +55,24 @@
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Başlangıç Tarihi</label>
-                                <input type="date" class="form-control" name="baslangicTarihi" required min="@DateTime.Now.ToString("yyyy-MM-dd")">
+                                <input type="date" class="form-control" name="baslangicTarihi" id="baslangicTarihi" required min="@DateTime.Now.ToString("yyyy-MM-dd")" onchange="hesaplaToplamFiyat()">
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Bitiş Tarihi</label>
-                                <input type="date" class="form-control" name="bitisTarihi" required min="@DateTime.Now.ToString("yyyy-MM-dd")">
+                                <input type="date" class="form-control" name="bitisTarihi" id="bitisTarihi" required min="@DateTime.Now.ToString("yyyy-MM-dd")" onchange="hesaplaToplamFiyat()">
+                            </div>
+                            <div class="mb-3" id="toplamFiyatDiv">
+                                <div class="alert alert-info">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <strong>Kiralama Süresi:</strong> <span id="kiralamaSuresi">-</span> gün<br>
+                                            <strong>Günlük Fiyat:</strong> @Model.GunlukFiyat.ToString("C")
+                                        </div>
+                                        <div class="text-end">
+                                            <h4 class="mb-0">Toplam: <span id="toplamFiyat">0,00 ₺</span></h4>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                             <button type="submit" class="btn btn-primary">Kiralama Talebi Gönder</button>
                         </form>
@@ -78,16 +91,66 @@
 
 @section Scripts {
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            var baslangicTarihi = document.querySelector('input[name="baslangicTarihi"]');
-            var bitisTarihi = document.querySelector('input[name="bitisTarihi"]');
+        // Toplam fiyat hesaplama fonksiyonu
+        function hesaplaToplamFiyat() {
+            try {
+                console.log("hesaplaToplamFiyat fonksiyonu çalıştı");
+                
+                var baslangicStr = document.getElementById('baslangicTarihi').value;
+                var bitisStr = document.getElementById('bitisTarihi').value;
+                var gunlukFiyat = @Json.Serialize(Model.GunlukFiyat);
+                
+                console.log("Başlangıç:", baslangicStr);
+                console.log("Bitiş:", bitisStr);
+                console.log("Günlük Fiyat:", gunlukFiyat);
 
-            baslangicTarihi.addEventListener('change', function () {
-                bitisTarihi.min = this.value;
-                if (bitisTarihi.value && bitisTarihi.value < this.value) {
-                    bitisTarihi.value = this.value;
+                if (baslangicStr && bitisStr) {
+                    var baslangic = new Date(baslangicStr);
+                    var bitis = new Date(bitisStr);
+                    
+                    if (bitis >= baslangic) {
+                        var gunFarki = Math.ceil((bitis - baslangic) / (1000 * 60 * 60 * 24)) + 1;
+                        var toplamFiyat = gunFarki * gunlukFiyat;
+                        
+                        console.log("Gün Farkı:", gunFarki);
+                        console.log("Toplam Fiyat:", toplamFiyat);
+
+                        document.getElementById('kiralamaSuresi').textContent = gunFarki;
+                        document.getElementById('toplamFiyat').textContent = new Intl.NumberFormat('tr-TR', {
+                            style: 'currency',
+                            currency: 'TRY'
+                        }).format(toplamFiyat);
+                        
+                        document.getElementById('toplamFiyatDiv').style.display = 'block';
+                    } else {
+                        document.getElementById('toplamFiyatDiv').style.display = 'none';
+                    }
                 }
+            } catch (error) {
+                console.error("Hata oluştu:", error);
+            }
+        }
+
+        // Sayfa yüklendiğinde ve tarih değiştiğinde hesaplama yap
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log("Sayfa yüklendi");
+            
+            var baslangicInput = document.getElementById('baslangicTarihi');
+            var bitisInput = document.getElementById('bitisTarihi');
+
+            baslangicInput.addEventListener('change', function() {
+                console.log("Başlangıç tarihi değişti");
+                bitisInput.min = this.value;
+                hesaplaToplamFiyat();
             });
+
+            bitisInput.addEventListener('change', function() {
+                console.log("Bitiş tarihi değişti");
+                hesaplaToplamFiyat();
+            });
+
+            // İlk yüklemede kontrol et
+            hesaplaToplamFiyat();
         });
     </script>
 } 

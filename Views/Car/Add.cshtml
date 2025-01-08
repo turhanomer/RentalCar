@@ -1,0 +1,13 @@
+@model RentalCar.Models.Car
+
+<form asp-action="Add" enctype="multipart/form-data">
+    <!-- Diğer form alanları... -->
+    
+    <div class="form-group">
+        <label asp-for="ImageFile" class="control-label">Araç Resmi</label>
+        <input asp-for="ImageFile" class="form-control" type="file" accept=".png,.jpg,.jpeg" />
+        <span asp-validation-for="ImageFile" class="text-danger"></span>
+    </div>
+    
+    <!-- Diğer form alanları... -->
+</form> 

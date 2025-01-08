@@ -1,248 +1,380 @@
 {
   "Files": [
     {
-      "Id": "C:\\Users\\omert\\Desktop\\RentalCar\\RentalCar\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\RentalCar.bundle.scp.css",
-      "PackagePath": "staticwebassets\\RentalCar.bundle.scp.css"
+      "Id": "C:\\Users\\emird\\Desktop\\RentalCar\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\RentalCar.bundle.scp.css",
+      "PackagePath": "staticwebassets\\RentalCar.meevvk4ftu.bundle.scp.css"
     },
     {
-      "Id": "C:\\Users\\omert\\Desktop\\RentalCar\\RentalCar\\wwwroot\\css\\site.css",
+      "Id": "C:\\Users\\emird\\Desktop\\RentalCar\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
-      "Id": "C:\\Users\\omert\\Desktop\\RentalCar\\RentalCar\\wwwroot\\favicon.ico",
+      "Id": "C:\\Users\\emird\\Desktop\\RentalCar\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
-      "Id": "C:\\Users\\omert\\Desktop\\RentalCar\\RentalCar\\wwwroot\\js\\site.js",
+      "Id": "C:\\Users\\emird\\Desktop\\RentalCar\\wwwroot\\fonts\\Poppins-Bold.ttf",
+      "PackagePath": "staticwebassets\\fonts\\Poppins-Bold.ttf"
+    },
+    {
+      "Id": "C:\\Users\\emird\\Desktop\\RentalCar\\wwwroot\\fonts\\Poppins-Light.ttf",
+      "PackagePath": "staticwebassets\\fonts\\Poppins-Light.ttf"
+    },
+    {
+      "Id": "C:\\Users\\emird\\Desktop\\RentalCar\\wwwroot\\fonts\\Poppins-Medium.ttf",
+      "PackagePath": "staticwebassets\\fonts\\Poppins-Medium.ttf"
+    },
+    {
+      "Id": "C:\\Users\\emird\\Desktop\\RentalCar\\wwwroot\\fonts\\Poppins-Regular.ttf",
+      "PackagePath": "staticwebassets\\fonts\\Poppins-Regular.ttf"
+    },
+    {
+      "Id": "C:\\Users\\emird\\Desktop\\RentalCar\\wwwroot\\fonts\\Poppins-SemiBold.ttf",
+      "PackagePath": "staticwebassets\\fonts\\Poppins-SemiBold.ttf"
+    },
+    {
+      "Id": "C:\\Users\\emird\\Desktop\\RentalCar\\wwwroot\\images\\brands\\audi.png",
+      "PackagePath": "staticwebassets\\images\\brands\\audi.png"
+    },
+    {
+      "Id": "C:\\Users\\emird\\Desktop\\RentalCar\\wwwroot\\images\\brands\\bmw.png",
+      "PackagePath": "staticwebassets\\images\\brands\\bmw.png"
+    },
+    {
+      "Id": "C:\\Users\\emird\\Desktop\\RentalCar\\wwwroot\\images\\brands\\ford.png",
+      "PackagePath": "staticwebassets\\images\\brands\\ford.png"
+    },
+    {
+      "Id": "C:\\Users\\emird\\Desktop\\RentalCar\\wwwroot\\images\\brands\\honda.png",
+      "PackagePath": "staticwebassets\\images\\brands\\honda.png"
+    },
+    {
+      "Id": "C:\\Users\\emird\\Desktop\\RentalCar\\wwwroot\\images\\brands\\hyundai.png",
+      "PackagePath": "staticwebassets\\images\\brands\\hyundai.png"
+    },
+    {
+      "Id": "C:\\Users\\emird\\Desktop\\RentalCar\\wwwroot\\images\\brands\\mercedes.png",
+      "PackagePath": "staticwebassets\\images\\brands\\mercedes.png"
+    },
+    {
+      "Id": "C:\\Users\\emird\\Desktop\\RentalCar\\wwwroot\\images\\brands\\toyota.png",
+      "PackagePath": "staticwebassets\\images\\brands\\toyota.png"
+    },
+    {
+      "Id": "C:\\Users\\emird\\Desktop\\RentalCar\\wwwroot\\images\\brands\\volkswagen.png",
+      "PackagePath": "staticwebassets\\images\\brands\\volkswagen.png"
+    },
+    {
+      "Id": "C:\\Users\\emird\\Desktop\\RentalCar\\wwwroot\\images\\logo.png",
+      "PackagePath": "staticwebassets\\images\\logo.png"
+    },
+    {
+      "Id": "C:\\Users\\emird\\Desktop\\RentalCar\\wwwroot\\images\\slider1.jpg",
+      "PackagePath": "staticwebassets\\images\\slider1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\emird\\Desktop\\RentalCar\\wwwroot\\images\\slider2.jpg",
+      "PackagePath": "staticwebassets\\images\\slider2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\emird\\Desktop\\RentalCar\\wwwroot\\images\\slider3.jpg",
+      "PackagePath": "staticwebassets\\images\\slider3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\emird\\Desktop\\RentalCar\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },
     {
-      "Id": "C:\\Users\\omert\\Desktop\\RentalCar\\RentalCar\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "Id": "C:\\Users\\emird\\Desktop\\RentalCar\\wwwroot\\lib\\bootstrap\\LICENSE",
       "PackagePath": "staticwebassets\\lib\\bootstrap"
     },
     {
-      "Id": "C:\\Users\\omert\\Desktop\\RentalCar\\RentalCar\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "Id": "C:\\Users\\emird\\Desktop\\RentalCar\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
     },
     {
-      "Id": "C:\\Users\\omert\\Desktop\\RentalCar\\RentalCar\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "Id": "C:\\Users\\emird\\Desktop\\RentalCar\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
     },
     {
-      "Id": "C:\\Users\\omert\\Desktop\\RentalCar\\RentalCar\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "Id": "C:\\Users\\emird\\Desktop\\RentalCar\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
     },
     {
-      "Id": "C:\\Users\\omert\\Desktop\\RentalCar\\RentalCar\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "Id": "C:\\Users\\emird\\Desktop\\RentalCar\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
     },
     {
-      "Id": "C:\\Users\\omert\\Desktop\\RentalCar\\RentalCar\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "Id": "C:\\Users\\emird\\Desktop\\RentalCar\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
     },
     {
-      "Id": "C:\\Users\\omert\\Desktop\\RentalCar\\RentalCar\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "Id": "C:\\Users\\emird\\Desktop\\RentalCar\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
     },
     {
-      "Id": "C:\\Users\\omert\\Desktop\\RentalCar\\RentalCar\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "Id": "C:\\Users\\emird\\Desktop\\RentalCar\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
     },
     {
-      "Id": "C:\\Users\\omert\\Desktop\\RentalCar\\RentalCar\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "Id": "C:\\Users\\emird\\Desktop\\RentalCar\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
     },
     {
-      "Id": "C:\\Users\\omert\\Desktop\\RentalCar\\RentalCar\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "Id": "C:\\Users\\emird\\Desktop\\RentalCar\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
     },
     {
-      "Id": "C:\\Users\\omert\\Desktop\\RentalCar\\RentalCar\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "Id": "C:\\Users\\emird\\Desktop\\RentalCar\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
     },
     {
-      "Id": "C:\\Users\\omert\\Desktop\\RentalCar\\RentalCar\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "Id": "C:\\Users\\emird\\Desktop\\RentalCar\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
     },
     {
-      "Id": "C:\\Users\\omert\\Desktop\\RentalCar\\RentalCar\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "Id": "C:\\Users\\emird\\Desktop\\RentalCar\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
     },
     {
-      "Id": "C:\\Users\\omert\\Desktop\\RentalCar\\RentalCar\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "Id": "C:\\Users\\emird\\Desktop\\RentalCar\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
     },
     {
-      "Id": "C:\\Users\\omert\\Desktop\\RentalCar\\RentalCar\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "Id": "C:\\Users\\emird\\Desktop\\RentalCar\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
     },
     {
-      "Id": "C:\\Users\\omert\\Desktop\\RentalCar\\RentalCar\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "Id": "C:\\Users\\emird\\Desktop\\RentalCar\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
     },
     {
-      "Id": "C:\\Users\\omert\\Desktop\\RentalCar\\RentalCar\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "Id": "C:\\Users\\emird\\Desktop\\RentalCar\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
     },
     {
-      "Id": "C:\\Users\\omert\\Desktop\\RentalCar\\RentalCar\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "Id": "C:\\Users\\emird\\Desktop\\RentalCar\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
     },
     {
-      "Id": "C:\\Users\\omert\\Desktop\\RentalCar\\RentalCar\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "Id": "C:\\Users\\emird\\Desktop\\RentalCar\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
     },
     {
-      "Id": "C:\\Users\\omert\\Desktop\\RentalCar\\RentalCar\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "Id": "C:\\Users\\emird\\Desktop\\RentalCar\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
     },
     {
-      "Id": "C:\\Users\\omert\\Desktop\\RentalCar\\RentalCar\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "Id": "C:\\Users\\emird\\Desktop\\RentalCar\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
     },
     {
-      "Id": "C:\\Users\\omert\\Desktop\\RentalCar\\RentalCar\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "Id": "C:\\Users\\emird\\Desktop\\RentalCar\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
     },
     {
-      "Id": "C:\\Users\\omert\\Desktop\\RentalCar\\RentalCar\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "Id": "C:\\Users\\emird\\Desktop\\RentalCar\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
     },
     {
-      "Id": "C:\\Users\\omert\\Desktop\\RentalCar\\RentalCar\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "Id": "C:\\Users\\emird\\Desktop\\RentalCar\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
     },
     {
-      "Id": "C:\\Users\\omert\\Desktop\\RentalCar\\RentalCar\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "Id": "C:\\Users\\emird\\Desktop\\RentalCar\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
     },
     {
-      "Id": "C:\\Users\\omert\\Desktop\\RentalCar\\RentalCar\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "Id": "C:\\Users\\emird\\Desktop\\RentalCar\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css"
     },
     {
-      "Id": "C:\\Users\\omert\\Desktop\\RentalCar\\RentalCar\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "Id": "C:\\Users\\emird\\Desktop\\RentalCar\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
     },
     {
-      "Id": "C:\\Users\\omert\\Desktop\\RentalCar\\RentalCar\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "Id": "C:\\Users\\emird\\Desktop\\RentalCar\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
     },
     {
-      "Id": "C:\\Users\\omert\\Desktop\\RentalCar\\RentalCar\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "Id": "C:\\Users\\emird\\Desktop\\RentalCar\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
     },
     {
-      "Id": "C:\\Users\\omert\\Desktop\\RentalCar\\RentalCar\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "Id": "C:\\Users\\emird\\Desktop\\RentalCar\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
     },
     {
-      "Id": "C:\\Users\\omert\\Desktop\\RentalCar\\RentalCar\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "Id": "C:\\Users\\emird\\Desktop\\RentalCar\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
     },
     {
-      "Id": "C:\\Users\\omert\\Desktop\\RentalCar\\RentalCar\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "Id": "C:\\Users\\emird\\Desktop\\RentalCar\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
     },
     {
-      "Id": "C:\\Users\\omert\\Desktop\\RentalCar\\RentalCar\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "Id": "C:\\Users\\emird\\Desktop\\RentalCar\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
     },
     {
-      "Id": "C:\\Users\\omert\\Desktop\\RentalCar\\RentalCar\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "Id": "C:\\Users\\emird\\Desktop\\RentalCar\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
     },
     {
-      "Id": "C:\\Users\\omert\\Desktop\\RentalCar\\RentalCar\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "Id": "C:\\Users\\emird\\Desktop\\RentalCar\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
     },
     {
-      "Id": "C:\\Users\\omert\\Desktop\\RentalCar\\RentalCar\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "Id": "C:\\Users\\emird\\Desktop\\RentalCar\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
     },
     {
-      "Id": "C:\\Users\\omert\\Desktop\\RentalCar\\RentalCar\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "Id": "C:\\Users\\emird\\Desktop\\RentalCar\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
     },
     {
-      "Id": "C:\\Users\\omert\\Desktop\\RentalCar\\RentalCar\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "Id": "C:\\Users\\emird\\Desktop\\RentalCar\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
     },
     {
-      "Id": "C:\\Users\\omert\\Desktop\\RentalCar\\RentalCar\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "Id": "C:\\Users\\emird\\Desktop\\RentalCar\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
     },
     {
-      "Id": "C:\\Users\\omert\\Desktop\\RentalCar\\RentalCar\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "Id": "C:\\Users\\emird\\Desktop\\RentalCar\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
     },
     {
-      "Id": "C:\\Users\\omert\\Desktop\\RentalCar\\RentalCar\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "Id": "C:\\Users\\emird\\Desktop\\RentalCar\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
     },
     {
-      "Id": "C:\\Users\\omert\\Desktop\\RentalCar\\RentalCar\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "Id": "C:\\Users\\emird\\Desktop\\RentalCar\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js"
     },
     {
-      "Id": "C:\\Users\\omert\\Desktop\\RentalCar\\RentalCar\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "Id": "C:\\Users\\emird\\Desktop\\RentalCar\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
     },
     {
-      "Id": "C:\\Users\\omert\\Desktop\\RentalCar\\RentalCar\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "Id": "C:\\Users\\emird\\Desktop\\RentalCar\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
     },
     {
-      "Id": "C:\\Users\\omert\\Desktop\\RentalCar\\RentalCar\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "Id": "C:\\Users\\emird\\Desktop\\RentalCar\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
     },
     {
-      "Id": "C:\\Users\\omert\\Desktop\\RentalCar\\RentalCar\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "Id": "C:\\Users\\emird\\Desktop\\RentalCar\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
       "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
     },
     {
-      "Id": "C:\\Users\\omert\\Desktop\\RentalCar\\RentalCar\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "Id": "C:\\Users\\emird\\Desktop\\RentalCar\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
     },
     {
-      "Id": "C:\\Users\\omert\\Desktop\\RentalCar\\RentalCar\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "Id": "C:\\Users\\emird\\Desktop\\RentalCar\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
     },
     {
-      "Id": "C:\\Users\\omert\\Desktop\\RentalCar\\RentalCar\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "Id": "C:\\Users\\emird\\Desktop\\RentalCar\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\LICENSE.md"
     },
     {
-      "Id": "C:\\Users\\omert\\Desktop\\RentalCar\\RentalCar\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "Id": "C:\\Users\\emird\\Desktop\\RentalCar\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.js"
     },
     {
-      "Id": "C:\\Users\\omert\\Desktop\\RentalCar\\RentalCar\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "Id": "C:\\Users\\emird\\Desktop\\RentalCar\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.min.js"
     },
     {
-      "Id": "C:\\Users\\omert\\Desktop\\RentalCar\\RentalCar\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "Id": "C:\\Users\\emird\\Desktop\\RentalCar\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.js"
     },
     {
-      "Id": "C:\\Users\\omert\\Desktop\\RentalCar\\RentalCar\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "Id": "C:\\Users\\emird\\Desktop\\RentalCar\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
     },
     {
-      "Id": "C:\\Users\\omert\\Desktop\\RentalCar\\RentalCar\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "Id": "C:\\Users\\emird\\Desktop\\RentalCar\\wwwroot\\lib\\jquery\\LICENSE.txt",
       "PackagePath": "staticwebassets\\lib\\jquery\\LICENSE.txt"
     },
     {
-      "Id": "C:\\Users\\omert\\Desktop\\RentalCar\\RentalCar\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "Id": "C:\\Users\\emird\\Desktop\\RentalCar\\wwwroot\\lib\\jquery\\dist\\jquery.js",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.js"
     },
     {
-      "Id": "C:\\Users\\omert\\Desktop\\RentalCar\\RentalCar\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "Id": "C:\\Users\\emird\\Desktop\\RentalCar\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.js"
     },
     {
-      "Id": "C:\\Users\\omert\\Desktop\\RentalCar\\RentalCar\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "Id": "C:\\Users\\emird\\Desktop\\RentalCar\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "C:\\Users\\emird\\Desktop\\RentalCar\\wwwroot\\uploads\\406a367d-9576-42fe-a3d5-1bde72ffec86_Fiat-Egea-Fiyat-Listesi-Ağustos2020.jpg",
+      "PackagePath": "staticwebassets\\uploads\\406a367d-9576-42fe-a3d5-1bde72ffec86_Fiat-Egea-Fiyat-Listesi-Ağustos2020.jpg"
+    },
+    {
+      "Id": "C:\\Users\\emird\\Desktop\\RentalCar\\wwwroot\\uploads\\55d553c9-ae31-44da-a396-5a839518da9e_hyundai20-2018jpg.png",
+      "PackagePath": "staticwebassets\\uploads\\55d553c9-ae31-44da-a396-5a839518da9e_hyundai20-2018jpg.png"
+    },
+    {
+      "Id": "C:\\Users\\emird\\Desktop\\RentalCar\\wwwroot\\uploads\\56e58079-9d2e-4935-95c9-e75753a58ab3_Screenshot 2022-04-21 at 15.24.13.jpg",
+      "PackagePath": "staticwebassets\\uploads\\56e58079-9d2e-4935-95c9-e75753a58ab3_Screenshot 2022-04-21 at 15.24.13.jpg"
+    },
+    {
+      "Id": "C:\\Users\\emird\\Desktop\\RentalCar\\wwwroot\\uploads\\580e7585-28e5-4407-ac6b-5bd0700697f6_egeacross2024.jpg",
+      "PackagePath": "staticwebassets\\uploads\\580e7585-28e5-4407-ac6b-5bd0700697f6_egeacross2024.jpg"
+    },
+    {
+      "Id": "C:\\Users\\emird\\Desktop\\RentalCar\\wwwroot\\uploads\\599253e8-d032-4f7c-864a-c71860c686f7_Togg_T10X_.png",
+      "PackagePath": "staticwebassets\\uploads\\599253e8-d032-4f7c-864a-c71860c686f7_Togg_T10X_.png"
+    },
+    {
+      "Id": "C:\\Users\\emird\\Desktop\\RentalCar\\wwwroot\\uploads\\5b9eddf6-2597-4c2e-b877-7e292c86b3ea_RENAULT-Clio-4-2018.png",
+      "PackagePath": "staticwebassets\\uploads\\5b9eddf6-2597-4c2e-b877-7e292c86b3ea_RENAULT-Clio-4-2018.png"
+    },
+    {
+      "Id": "C:\\Users\\emird\\Desktop\\RentalCar\\wwwroot\\uploads\\5d706cf7-33aa-48a3-879b-b2beb9dcff54_pngwing.com.png",
+      "PackagePath": "staticwebassets\\uploads\\5d706cf7-33aa-48a3-879b-b2beb9dcff54_pngwing.com.png"
+    },
+    {
+      "Id": "C:\\Users\\emird\\Desktop\\RentalCar\\wwwroot\\uploads\\629af5ce-cb03-4216-a83f-4774a250339f_civic2018.jpg",
+      "PackagePath": "staticwebassets\\uploads\\629af5ce-cb03-4216-a83f-4774a250339f_civic2018.jpg"
+    },
+    {
+      "Id": "C:\\Users\\emird\\Desktop\\RentalCar\\wwwroot\\uploads\\659268f0-5730-4e2f-b46f-51c717a890a5_corolla2020.jpg",
+      "PackagePath": "staticwebassets\\uploads\\659268f0-5730-4e2f-b46f-51c717a890a5_corolla2020.jpg"
+    },
+    {
+      "Id": "C:\\Users\\emird\\Desktop\\RentalCar\\wwwroot\\uploads\\95d7e67e-42b3-483e-a56b-527c5e220da1_pngwing.com.png",
+      "PackagePath": "staticwebassets\\uploads\\95d7e67e-42b3-483e-a56b-527c5e220da1_pngwing.com.png"
+    },
+    {
+      "Id": "C:\\Users\\emird\\Desktop\\RentalCar\\wwwroot\\uploads\\a71142fc-64e9-4839-b7e2-5f8f70859fc1_2.png",
+      "PackagePath": "staticwebassets\\uploads\\a71142fc-64e9-4839-b7e2-5f8f70859fc1_2.png"
+    },
+    {
+      "Id": "C:\\Users\\emird\\Desktop\\RentalCar\\wwwroot\\uploads\\b258c4a8-f24a-4151-91fe-94c209071674_Renault-Megane-Transparent-File.png",
+      "PackagePath": "staticwebassets\\uploads\\b258c4a8-f24a-4151-91fe-94c209071674_Renault-Megane-Transparent-File.png"
+    },
+    {
+      "Id": "C:\\Users\\emird\\Desktop\\RentalCar\\wwwroot\\uploads\\b909774d-471b-423b-aebc-11210ef8caab_Audi-RS6-Transparent-Free-PNG.png",
+      "PackagePath": "staticwebassets\\uploads\\b909774d-471b-423b-aebc-11210ef8caab_Audi-RS6-Transparent-Free-PNG.png"
+    },
+    {
+      "Id": "C:\\Users\\emird\\Desktop\\RentalCar\\wwwroot\\uploads\\d2d267e7-166f-4dbd-8de8-710739bfdf5e_opelastra2024.png",
+      "PackagePath": "staticwebassets\\uploads\\d2d267e7-166f-4dbd-8de8-710739bfdf5e_opelastra2024.png"
+    },
+    {
+      "Id": "C:\\Users\\emird\\Desktop\\RentalCar\\wwwroot\\uploads\\fd9a0615-b66e-43a9-b8c3-162ae85ec303_VW-Caddy-2015.jpg",
+      "PackagePath": "staticwebassets\\uploads\\fd9a0615-b66e-43a9-b8c3-162ae85ec303_VW-Caddy-2015.jpg"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.RentalCar.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
     },
     {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.RentalCar.Microsoft.AspNetCore.StaticWebAssets.props",

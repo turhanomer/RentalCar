@@ -11,70 +11,82 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <!-- Üst Header -->
+        <div class="top-header py-2">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Anasayfa" asp-action="Index">Araç Kiralama</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse">
+                <div class="d-flex justify-content-end align-items-center">
+                    <div class="me-4">
+                        <i class="fas fa-envelope me-2"></i>
+                        <span>ozdogancar@gmail.com</span>
+                    </div>
+                    <div>
+                        <i class="fas fa-phone-alt me-2"></i>
+                        <span>(0224) 294 26 95</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ana Header -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom">
+            <div class="container">
+                <a class="navbar-brand" asp-controller="Anasayfa" asp-action="Index">
+                    <img src="/images/logo.png" alt="Özdoğan Car" height="50" class="d-inline-block align-text-top">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav mx-auto">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Anasayfa" asp-action="Index">Anasayfa</a>
+                            <a class="nav-link px-3 @(ViewContext.RouteData.Values["Action"]?.ToString() == "Index" ? "active" : "")" 
+                               asp-controller="Anasayfa" asp-action="Index">Anasayfa</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Anasayfa" asp-action="Araclar">Araçlar</a>
+                            <a class="nav-link px-3 @(ViewContext.RouteData.Values["Action"]?.ToString() == "Araclar" ? "active" : "")" 
+                               asp-controller="Anasayfa" asp-action="Araclar">Araçlar ve Fiyatlar</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Anasayfa" asp-action="Iletisim">İletişim</a>
-                        </li>
-                        <li class="nav-item ms-auto">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Yonetici" asp-action="Giris">Admin Girişi</a>
+                            <a class="nav-link px-3 @(ViewContext.RouteData.Values["Action"]?.ToString() == "Iletisim" ? "active" : "")" 
+                               asp-controller="Anasayfa" asp-action="Iletisim">İletişim</a>
                         </li>
                     </ul>
+                    <div class="ms-auto">
+                        <a class="btn btn-outline-dark" asp-controller="Yonetici" asp-action="Giris">
+                            <i class="fas fa-user me-2"></i>Admin Girişi
+                        </a>
+                    </div>
                 </div>
             </div>
         </nav>
     </header>
 
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
+    <main>
+        @RenderBody()
+    </main>
 
     <footer class="footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4 mb-4">
-                    <h5><i class="fas fa-map-marker-alt me-2"></i>İletişim</h5>
-                    <p>
-                        Adres: Örnek Mahallesi, Örnek Sokak No:1<br />
-                        <i class="fas fa-phone me-2"></i>(555) 123-4567<br />
-                        <i class="fas fa-envelope me-2"></i>info@arackiralama.com
-                    </p>
+        <div class="container py-4">
+            <div class="row g-4 align-items-center">
+                <div class="col-lg-4 col-md-12 text-center text-lg-start">
+                    <img src="/images/logo.png" alt="Özdoğan Car" height="40" class="mb-3">
+                    <p class="text-muted mb-0">Güvenilir ve kaliteli araç kiralama hizmeti.</p>
                 </div>
-                <div class="col-md-4 mb-4">
-                    <h5><i class="fas fa-link me-2"></i>Hızlı Linkler</h5>
-                    <ul class="list-unstyled">
-                        <li><a asp-controller="Anasayfa" asp-action="Index"><i class="fas fa-chevron-right me-2"></i>Anasayfa</a></li>
-                        <li><a asp-controller="Anasayfa" asp-action="Araclar"><i class="fas fa-chevron-right me-2"></i>Araçlar</a></li>
-                        <li><a asp-controller="Anasayfa" asp-action="Gizlilik"><i class="fas fa-chevron-right me-2"></i>Gizlilik</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <h5><i class="fas fa-share-alt me-2"></i>Sosyal Medya</h5>
-                    <div class="social-links">
-                        <a href="#" class="me-3"><i class="fab fa-facebook fa-lg"></i></a>
-                        <a href="#" class="me-3"><i class="fab fa-twitter fa-lg"></i></a>
-                        <a href="#" class="me-3"><i class="fab fa-instagram fa-lg"></i></a>
-                        <a href="#" class="me-3"><i class="fab fa-linkedin fa-lg"></i></a>
+                <div class="col-lg-4 col-md-12 text-center">
+                    <div class="footer-contact">
+                        <p class="mb-2"><i class="fas fa-map-marker-alt me-2"></i>Uludağ Üniversitesi İnegöl Yerleşkesi</p>
+                        <p class="mb-2"><i class="fas fa-phone me-2"></i>(0224) 294 26 95</p>
+                        <p class="mb-0"><i class="fas fa-envelope me-2"></i>ozdogancar@gmail.com</p>
                     </div>
                 </div>
-            </div>
-            <hr />
-            <div class="text-center">
-                <small>&copy; @DateTime.Now.Year - Araç Kiralama - <a asp-controller="Anasayfa" asp-action="Gizlilik">Gizlilik</a></small>
+                <div class="col-lg-4 col-md-12 text-center text-lg-end">
+                    <div class="social-links mb-3">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    </div>
+                    <p class="copyright mb-0">&copy; @DateTime.Now.Year Özdoğan Car. Tüm hakları saklıdır.</p>
+                </div>
             </div>
         </div>
     </footer>

@@ -4,39 +4,146 @@
     ViewData["Title"] = "Araçlarımız";
 }
 
-<div class="container">
-    <h2 class="mb-4">Araçlarımız</h2>
+<div class="container py-5">
+    @if (TempData["Success"] != null)
+    {
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <i class="fas fa-check-circle me-2"></i>
+            @TempData["Success"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
 
-    <div class="row">
+    @if (TempData["Error"] != null)
+    {
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <i class="fas fa-exclamation-circle me-2"></i>
+            @TempData["Error"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+
+    <h2 class="text-center mb-4">Araçlarımız</h2>
+    
+    <div class="row g-4">
         @foreach (var arac in Model)
         {
-            <div class="col-md-4 mb-4">
-                <div class="card h-100">
-                    @if (!string.IsNullOrEmpty(arac.ResimUrl))
-                    {
-                        <img src="@arac.ResimUrl" class="card-img-top" alt="@arac.Marka @arac.Model">
-                    }
-                    else
-                    {
-                        <img src="/images/default-car.jpg" class="card-img-top" alt="Varsayılan Araç Resmi">
-                    }
-                    <div class="card-body">
-                        <h5 class="card-title">@arac.Marka @arac.Model (@arac.Yil)</h5>
-                        <p class="card-text">
-                            <strong>Günlük Fiyat:</strong> @arac.GunlukFiyat.ToString("C")<br>
-                            <strong>Kapasite:</strong> @arac.Kapasite Kişilik<br>
-                            <strong>Yakıt:</strong> @arac.YakitTuru<br>
-                            <strong>Vites:</strong> @arac.VitesTuru
-                        </p>
-                        <div class="d-flex justify-content-between align-items-center">
-                            <a href="@Url.Action("AracDetay", new { id = arac.Id })" class="btn btn-primary">Detaylar</a>
-                            <span class="badge bg-@(arac.Musait ? "success" : "danger")">
-                                @(arac.Musait ? "Müsait" : "Kirada")
-                            </span>
+            <div class="col-md-4">
+                <a href="@Url.Action("AracDetay", "Anasayfa", new { id = arac.Id })" class="car-card-link">
+                    <div class="featured-car-card @(!arac.Musait ? "unavailable-car" : "")">
+                        <div class="car-image">
+                            @if (!string.IsNullOrEmpty(arac.ResimUrl))
+                            {
+                                <img src="@arac.ResimUrl" class="img-fluid" alt="@arac.Marka @arac.Model">
+                            }
+                            else
+                            {
+                                <img src="/images/default-car.jpg" class="img-fluid" alt="Varsayılan Araç Resmi">
+                            }
+                            <div class="car-overlay">
+                                <span class="btn btn-primary">İncele</span>
+                            </div>
+                        </div>
+                        <div class="car-content">
+                            <h3 class="car-title">@arac.Marka @arac.Model</h3>
+                            <div class="car-info">
+                                <span class="year"><i class="fas fa-calendar me-2"></i>@arac.Yil</span>
+                                <span class="price"><i class="fas fa-turkish-lira-sign me-2"></i>@arac.GunlukFiyat/Gün</span>
+                            </div>
+                            @if (!arac.Musait)
+                            {
+                                <div class="unavailable-badge">
+                                    <span class="badge bg-danger">Kirada</span>
+                                </div>
+                            }
                         </div>
                     </div>
-                </div>
+                </a>
             </div>
         }
     </div>
-</div> 
+</div>
+
+<style>
+    .unavailable-car {
+        opacity: 0.7;
+        position: relative;
+    }
+
+    .unavailable-car:hover {
+        opacity: 0.8;
+    }
+
+    .unavailable-badge {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        z-index: 2;
+    }
+
+    .unavailable-badge .badge {
+        font-size: 1rem;
+        padding: 8px 16px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .alert {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        min-width: 300px;
+        max-width: 600px;
+        z-index: 9999;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        border-radius: 8px;
+        animation: slideInAlert 0.5s ease-out;
+    }
+
+    @@keyframes slideInAlert {
+        from {
+            transform: translateX(100%);
+            opacity: 0;
+        }
+        to {
+            transform: translateX(0);
+            opacity: 1;
+        }
+    }
+
+    .alert-success {
+        background-color: #d4edda;
+        border-color: #c3e6cb;
+        color: #155724;
+    }
+
+    .alert-danger {
+        background-color: #f8d7da;
+        border-color: #f5c6cb;
+        color: #721c24;
+    }
+
+    .alert .btn-close {
+        padding: 0.75rem;
+    }
+
+    .alert i {
+        font-size: 1.1em;
+    }
+</style>
+
+@section Scripts {
+    <script>
+        // Otomatik olarak alert'i 5 saniye sonra kapat
+        document.addEventListener('DOMContentLoaded', function() {
+            const alerts = document.querySelectorAll('.alert');
+            alerts.forEach(alert => {
+                setTimeout(() => {
+                    const closeButton = alert.querySelector('.btn-close');
+                    if (closeButton) {
+                        closeButton.click();
+                    }
+                }, 5000);
+            });
+        });
+    </script>
+} 

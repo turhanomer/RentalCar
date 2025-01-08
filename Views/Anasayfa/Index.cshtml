@@ -4,38 +4,219 @@
     ViewData["Title"] = "Anasayfa";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Hoş Geldiniz</h1>
-    <p class="lead">En uygun fiyatlarla araç kiralama hizmeti</p>
+<!-- Ana Slider -->
+<div class="main-slider mb-4">
+    <div id="mainCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="0" class="active"></button>
+            <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="1"></button>
+            <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="2"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="/images/slider1.jpg" class="d-block w-100" alt="Lüks Araçlar">
+                <div class="carousel-caption">
+                    <h2>Lüks ve Konfor Bir Arada</h2>
+                    <p>En yeni model araçlarla hizmetinizdeyiz</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="/images/slider2.jpg" class="d-block w-100" alt="Ekonomik Araçlar">
+                <div class="carousel-caption">
+                    <h2>Ekonomik Fiyatlar</h2>
+                    <p>Bütçe dostu araç kiralama seçenekleri</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="/images/slider3.jpg" class="d-block w-100" alt="7/24 Hizmet">
+                <div class="carousel-caption">
+                    <h2>7/24 Hizmet</h2>
+                    <p>Her an yanınızdayız</p>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#mainCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#mainCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </button>
+    </div>
 </div>
 
-<div class="row mt-5">
-    <div class="col-md-4">
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">Geniş Araç Filosu</h5>
-                <p class="card-text">Her ihtiyaca uygun, bakımlı ve konforlu araçlarımızla hizmetinizdeyiz.</p>
+<!-- Özellikler -->
+<section class="features-section">
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-md-3">
+                <div class="feature-item text-center">
+                    <div class="feature-icon mb-2">
+                        <i class="fas fa-bolt fa-2x text-primary"></i>
+                    </div>
+                    <h5>Hızlı Rezervasyon</h5>
+                    <p>Dakikalar içinde online rezervasyon yapın</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="feature-item text-center">
+                    <div class="feature-icon mb-2">
+                        <i class="fas fa-map-marker-alt fa-2x text-primary"></i>
+                    </div>
+                    <h5>Merkezi Lokasyonlar</h5>
+                    <p>Şehrin her noktasında hizmetinizdeyiz</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="feature-item text-center">
+                    <div class="feature-icon mb-2">
+                        <i class="fas fa-turkish-lira-sign fa-2x text-primary"></i>
+                    </div>
+                    <h5>Ekonomik Fiyat</h5>
+                    <p>Uygun fiyatlarla kaliteli hizmet</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="feature-item text-center">
+                    <div class="feature-icon mb-2">
+                        <i class="fas fa-shield-alt fa-2x text-primary"></i>
+                    </div>
+                    <h5>Güvenilir Hizmet</h5>
+                    <p>%100 müşteri memnuniyeti garantisi</p>
+                </div>
             </div>
         </div>
     </div>
-    <div class="col-md-4">
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">Uygun Fiyatlar</h5>
-                <p class="card-text">Rekabetçi fiyatlarımız ve esnek ödeme seçeneklerimizle bütçenize uygun çözümler.</p>
+</section>
+
+<!-- Boşluk Bölümü -->
+<div class="section-spacer"></div>
+
+<!-- Öne Çıkan Araçlar -->
+<section class="featured-cars py-5">
+    <div class="container">
+        <div class="section-header text-center mb-5">
+            <h2 class="section-title">Öne Çıkan Araçlarımız</h2>
+            <div class="section-divider"></div>
+            <p class="section-subtitle">Size en uygun aracı seçin</p>
+        </div>
+        
+        <div class="position-relative featured-slider">
+            <div id="featuredCars" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    @{
+                        var arabaListesi = Model.ToList();
+                        for (int i = 0; i < arabaListesi.Count; i += 3)
+                        {
+                            <div class="carousel-item @(i == 0 ? "active" : "")">
+                                <div class="row g-4">
+                                    @foreach (var araba in arabaListesi.Skip(i).Take(3))
+                                    {
+                                        <div class="col-md-4">
+                                            <a href="@Url.Action("AracDetay", "Anasayfa", new { id = araba.Id })" class="car-card-link">
+                                                <div class="featured-car-card">
+                                                    <div class="car-image">
+                                                        <img src="@araba.ResimUrl" class="img-fluid" alt="@araba.Marka @araba.Model">
+                                                        <div class="car-overlay">
+                                                            <span class="btn btn-primary">İncele</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="car-content">
+                                                        <h3 class="car-title">@araba.Marka @araba.Model</h3>
+                                                        <div class="car-info">
+                                                            <span class="year"><i class="fas fa-calendar me-2"></i>@araba.Yil</span>
+                                                            <span class="price"><i class="fas fa-turkish-lira-sign me-2"></i>@araba.GunlukFiyat/Gün</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                        }
+                    }
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#featuredCars" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#featuredCars" data-bs-slide="next">
+                    <span class="carousel-control-next-icon"></span>
+                </button>
             </div>
         </div>
     </div>
-    <div class="col-md-4">
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title">7/24 Destek</h5>
-                <p class="card-text">Müşteri hizmetlerimiz her an yanınızda, sorunlarınıza anında çözüm.</p>
-            </div>
+</section>
+
+<!-- Marka Logoları Slider -->
+<div class="brand-slider">
+    <div class="brand-track">
+        <!-- İlk set logolar -->
+        <div class="brand-item">
+            <img src="/images/brands/mercedes.png" alt="Mercedes-Benz">
+        </div>
+        <div class="brand-item">
+            <img src="/images/brands/bmw.png" alt="BMW">
+        </div>
+        <div class="brand-item">
+            <img src="/images/brands/audi.png" alt="Audi">
+        </div>
+        <div class="brand-item">
+            <img src="/images/brands/volkswagen.png" alt="Volkswagen">
+        </div>
+        <div class="brand-item">
+            <img src="/images/brands/toyota.png" alt="Toyota">
+        </div>
+        <div class="brand-item">
+            <img src="/images/brands/honda.png" alt="Honda">
+        </div>
+        <div class="brand-item">
+            <img src="/images/brands/ford.png" alt="Ford">
+        </div>
+        <div class="brand-item">
+            <img src="/images/brands/hyundai.png" alt="Hyundai">
+        </div>
+        <!-- İkinci set logolar (kopyası) -->
+        <div class="brand-item">
+            <img src="/images/brands/mercedes.png" alt="Mercedes-Benz">
+        </div>
+        <div class="brand-item">
+            <img src="/images/brands/bmw.png" alt="BMW">
+        </div>
+        <div class="brand-item">
+            <img src="/images/brands/audi.png" alt="Audi">
+        </div>
+        <div class="brand-item">
+            <img src="/images/brands/volkswagen.png" alt="Volkswagen">
+        </div>
+        <div class="brand-item">
+            <img src="/images/brands/toyota.png" alt="Toyota">
+        </div>
+        <div class="brand-item">
+            <img src="/images/brands/honda.png" alt="Honda">
+        </div>
+        <div class="brand-item">
+            <img src="/images/brands/ford.png" alt="Ford">
+        </div>
+        <div class="brand-item">
+            <img src="/images/brands/hyundai.png" alt="Hyundai">
         </div>
     </div>
 </div>
 
-<div class="text-center mt-5">
-    <a asp-action="Araclar" class="btn btn-primary btn-lg">Araçlarımızı İncele</a>
-</div>
+@section Scripts {
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const track = document.querySelector('.brand-track');
+            if (track) {
+                track.style.animation = 'none';
+                track.offsetHeight; // Reflow
+                track.style.animation = 'slide 40s linear infinite';
+            }
+        });
+    </script>
+}
+
+<!-- Footer -->
+<footer class="footer">
+    <!-- ... mevcut footer içeriği ... -->
+</footer>

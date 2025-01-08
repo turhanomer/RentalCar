@@ -4,7 +4,7 @@
     ViewData["Title"] = "Araçları Yönet";
 }
 
-<div class="container">
+<div class="container py-4">
     @if (TempData["Success"] != null)
     {
         <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -22,19 +22,19 @@
     }
 
     <div class="d-flex justify-content-between align-items-center mb-4">
-        <h2>Araçları Yönet</h2>
+        <h2 class="mb-0">Araçları Yönet</h2>
         <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#aracEkleModal">
             <i class="fas fa-plus"></i> Yeni Araç Ekle
         </button>
     </div>
 
     <div class="card">
-        <div class="card-body">
+        <div class="card-body p-0">
             <div class="table-responsive">
-                <table class="table table-striped table-hover">
+                <table class="table table-striped table-hover align-middle mb-0">
                     <thead class="table-light">
                         <tr>
-                            <th>Resim</th>
+                            <th class="text-center" style="width: 80px;">Resim</th>
                             <th>Marka</th>
                             <th>Model</th>
                             <th>Yıl</th>
@@ -43,21 +43,21 @@
                             <th>Yakıt Türü</th>
                             <th>Vites</th>
                             <th>Durum</th>
-                            <th>İşlemler</th>
+                            <th class="text-end" style="width: 160px;">İşlemler</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach (var arac in Model)
                         {
                             <tr>
-                                <td>
+                                <td class="text-center">
                                     @if (!string.IsNullOrEmpty(arac.ResimUrl))
                                     {
-                                        <img src="@arac.ResimUrl" alt="@arac.Marka @arac.Model" class="img-thumbnail" style="max-height: 50px;">
+                                        <img src="@arac.ResimUrl" alt="@arac.Marka @arac.Model" class="img-thumbnail" style="width: 50px; height: 50px; object-fit: cover;">
                                     }
                                     else
                                     {
-                                        <img src="/images/default-car.jpg" alt="Varsayılan Araç Resmi" class="img-thumbnail" style="max-height: 50px;">
+                                        <img src="/images/default-car.jpg" alt="Varsayılan Araç Resmi" class="img-thumbnail" style="width: 50px; height: 50px; object-fit: cover;">
                                     }
                                 </td>
                                 <td>@arac.Marka</td>
@@ -68,17 +68,19 @@
                                 <td>@arac.YakitTuru</td>
                                 <td>@arac.VitesTuru</td>
                                 <td>
-                                    <span class="badge bg-@arac.DurumClass">
-                                        @arac.DurumText
+                                    <span class="badge bg-@(arac.Musait ? "success" : "danger")">
+                                        @(arac.Musait ? "Müsait" : "Kirada")
                                     </span>
                                 </td>
-                                <td>
-                                    <button class="btn btn-primary btn-sm" onclick="aracDuzenle(@arac.Id, '@arac.Marka', '@arac.Model', @arac.Yil, @arac.GunlukFiyat, '@arac.ResimUrl', @arac.Kapasite, '@arac.YakitTuru', '@arac.VitesTuru', @arac.Musait.ToString().ToLower())">
-                                        <i class="fas fa-edit"></i> Düzenle
-                                    </button>
-                                    <button class="btn btn-danger btn-sm" onclick="aracSil(@arac.Id)">
-                                        <i class="fas fa-trash"></i> Sil
-                                    </button>
+                                <td class="text-end">
+                                    <div class="btn-group">
+                                        <button class="btn btn-primary btn-sm" onclick="aracDuzenle(@arac.Id, '@arac.Marka', '@arac.Model', @arac.Yil, @arac.GunlukFiyat, '@arac.ResimUrl', @arac.Kapasite, '@arac.YakitTuru', '@arac.VitesTuru', @arac.Musait.ToString().ToLower())">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                        <button class="btn btn-danger btn-sm" onclick="aracSil(@arac.Id)">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </div>
                                 </td>
                             </tr>
                         }
@@ -288,7 +290,7 @@
             document.getElementById('duzenleKapasite').value = kapasite;
             document.getElementById('duzenleYakitTuru').value = yakitTuru;
             document.getElementById('duzenleVitesTuru').value = vitesTuru;
-            document.getElementById('duzenleMusait').checked = musait === 'true';
+            document.getElementById('duzenleMusait').checked = musait === true || musait === 'true';
 
             // Mevcut resmi göster
             const resimOnizlemeDiv = document.getElementById('duzenleResimOnizleme');

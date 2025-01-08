@@ -67,7 +67,7 @@
                             @foreach (var talep in Model)
                             {
                                 <tr class="rental-row" data-status="@talep.Durum">
-                                    <td>@talep.Arac.Marka @talep.Arac.Model</td>
+                                    <td>@(talep.Arac != null ? $"{talep.Arac.Marka} {talep.Arac.Model}" : "Araç Bilgisi Yok")</td>
                                     <td>@talep.MusteriAdi</td>
                                     <td>
                                         <small>
