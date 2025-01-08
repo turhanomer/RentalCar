@@ -11,7 +11,7 @@ namespace RentalCar.Controllers
         private readonly VeriTabaniContext _veriTabani;
         private readonly IWebHostEnvironment _hostingEnvironment;
         private readonly string[] _izinliResimTurleri = { ".jpg", ".jpeg", ".png", ".gif" };
-        private const int _maksimumResimBoyutu = 5 * 1024 * 1024; // 5MB
+        private const int _maksimumResimBoyutu = 5 * 1024 * 1024;
 
         public YoneticiController(VeriTabaniContext veriTabani, IWebHostEnvironment hostingEnvironment)
         {
@@ -21,7 +21,7 @@ namespace RentalCar.Controllers
 
         private bool ResimGecerliMi(IFormFile file)
         {
-            if (file == null || file.Length == 0) return true; // Resim zorunlu değil
+            if (file == null || file.Length == 0) return true;
 
             if (file.Length > _maksimumResimBoyutu)
             {
@@ -195,7 +195,6 @@ namespace RentalCar.Controllers
                     return RedirectToAction(nameof(AracYonetimi));
                 }
 
-                // Mevcut resmi koru eğer yeni resim yüklenmediyse
                 if (arac.ResimDosyasi != null)
                 {
                     ResimSil(mevcutArac.ResimUrl);
@@ -236,7 +235,6 @@ namespace RentalCar.Controllers
                     return NotFound();
                 }
 
-                // Kiralama talepleri varsa silmeyi engelle
                 var kiralamaTalebiVar = await _veriTabani.KiralamaTalepleri
                     .AnyAsync(kt => kt.AracId == id && kt.Durum == "Onaylandı");
 
@@ -277,7 +275,6 @@ namespace RentalCar.Controllers
                     return RedirectToAction(nameof(Panel));
                 }
 
-                // Araç başka birine kiralanmışsa reddet
                 if (durum == "Onaylandı" && talep.Arac != null && !talep.Arac.Musait)
                 {
                     TempData["Error"] = "Bu araç başka bir müşteriye kiralanmış durumda.";

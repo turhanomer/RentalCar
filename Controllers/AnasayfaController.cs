@@ -22,7 +22,7 @@ namespace RentalCar.Controllers
             var araclar = await _veriTabani.Araclar
                 .Where(a => a.Musait)
                 .OrderByDescending(a => a.Id)
-                .Take(6)  // Öne çıkan araçlar için en son eklenen 6 aracı al
+                .Take(6)
                 .ToListAsync();
             return View(araclar);
         }

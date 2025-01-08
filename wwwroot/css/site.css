@@ -1,4 +1,3 @@
-/* Poppins Font Tanımlamaları */
 @font-face {
     font-family: 'Poppins';
     src: url('../fonts/Poppins-Light.ttf') format('truetype');
@@ -39,18 +38,15 @@
     font-display: swap;
 }
 
-/* Temel Font Ayarları */
 html, body {
     font-family: 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 
-/* Başlık Fontları */
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     font-family: 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     font-weight: 600;
 }
 
-/* Navbar Font Ayarları */
 .navbar .nav-link {
     font-family: 'Poppins', sans-serif;
     font-weight: 500;
@@ -61,29 +57,22 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     font-weight: 600;
 }
 
-/* Buton Font Ayarları */
 .btn {
     font-family: 'Poppins', sans-serif;
     font-weight: 500;
 }
 
-html {
-  font-size: 14px;
-  height: 100%;
-}
-
-@media (min-width: 768px) {
   html {
-    font-size: 16px;
-  }
+    height: 100%;
 }
 
 body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  margin: 0;
-  padding: 0;
+    margin: 0;
+    padding: 0;
+    position: relative;
 }
 
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
@@ -91,15 +80,12 @@ body {
 }
 
 .footer {
-  flex-shrink: 0;
+  width: 100%;
   background-color: #f8f9fa;
-  border-top: 1px solid #dee2e6;
-  padding: 1.5rem 0;
-  margin-top: auto;
-}
-
-main {
-  flex: 1 0 auto;
+    border-top: 1px solid #eee;
+    font-size: 0.95rem;
+    padding: 1.5rem 0;
+    margin-top: auto;
 }
 
 .footer a {
@@ -118,10 +104,48 @@ main {
 }
 
 .footer p {
-  color: #666;
+    color: #6c757d;
+    line-height: 1.6;
+    margin-bottom: 0;
 }
 
-/* Card stilleri */
+.footer-contact p {
+    margin-bottom: 0.5rem;
+}
+
+.footer-contact i {
+    color: #4C585B;
+    width: 20px;
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.social-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: #4C585B;
+    color: white !important;
+    transition: all 0.3s ease;
+}
+
+.social-link:hover {
+    background-color: #3a4447;
+    transform: translateY(-3px);
+}
+
+.copyright {
+    color: #6c757d;
+    font-size: 0.9rem;
+}
+
 .card {
   transition: transform 0.2s;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
@@ -136,11 +160,10 @@ main {
   object-fit: cover;
 }
 
-/* Navbar stilleri */
 .navbar {
   background-color: #fff !important;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  padding: 1rem 0;
+    padding: 1rem 0;
 }
 
 .navbar-brand {
@@ -149,65 +172,63 @@ main {
 }
 
 .navbar .nav-item {
-  position: relative;
-  margin: 0 5px;
+    position: relative;
+    margin: 0 5px;
 }
 
 .navbar .nav-link {
-  font-weight: 500;
-  color: #4C585B !important;
-  padding: 8px 20px !important;
-  border-radius: 25px;
-  transition: all 0.3s ease;
-  font-size: 15px;
-  letter-spacing: 0.5px;
+    font-weight: 500;
+    color: #4C585B !important;
+    padding: 8px 20px !important;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    font-size: 15px;
+    letter-spacing: 0.5px;
 }
 
 .navbar .nav-link:hover {
-  color: #fff !important;
-  background-color: #4C585B;
-  transform: translateY(-2px);
+    color: #fff !important;
+    background-color: #4C585B;
+    transform: translateY(-2px);
 }
 
 .navbar .nav-link.active {
-  color: #fff !important;
-  background-color: #4C585B;
+    color: #fff !important;
+    background-color: #4C585B;
 }
 
 .navbar .nav-item::after {
-  content: '';
-  position: absolute;
-  width: 0;
-  height: 2px;
-  background-color: #4C585B;
-  bottom: -5px;
-  left: 50%;
-  transform: translateX(-50%);
-  transition: width 0.3s ease;
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: #4C585B;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: width 0.3s ease;
 }
 
 .navbar .nav-item:hover::after {
-  width: 70%;
+    width: 70%;
 }
 
-/* Admin Giriş Butonu */
 .btn-outline-dark {
-  border: 2px solid #4C585B;
-  color: #4C585B;
+    border: 2px solid #4C585B;
+    color: #4C585B;
   font-weight: 500;
-  padding: 8px 20px;
-  border-radius: 25px;
-  transition: all 0.3s ease;
+    padding: 8px 20px;
+    border-radius: 25px;
+    transition: all 0.3s ease;
 }
 
 .btn-outline-dark:hover {
-  background-color: #4C585B;
-  color: #fff;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 10px rgba(76, 88, 91, 0.2);
+    background-color: #4C585B;
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(76, 88, 91, 0.2);
 }
 
-/* Ana Slider */
 .main-slider {
     margin-top: 20px;
     margin-bottom: 3rem;
@@ -230,7 +251,6 @@ main {
     bottom: 20%;
 }
 
-/* Öne Çıkan Araçlar */
 .featured-cars {
     background-color: #fff;
     padding: 120px 0 180px;
@@ -356,7 +376,6 @@ main {
     overflow: visible;
 }
 
-/* Slider Navigasyon Okları */
 .featured-cars .carousel-control-prev,
 .featured-cars .carousel-control-next {
     width: 45px;
@@ -423,7 +442,6 @@ main {
     }
 }
 
-/* Özellikler Bölümü */
 .features-section {
     background-color: #fff;
     padding: 40px 0;
@@ -508,7 +526,6 @@ main {
     }
 }
 
-/* Genel Stil Düzenlemeleri */
 .btn-primary {
     background-color: #4C585B;
     border-color: #4C585B;
@@ -521,55 +538,6 @@ main {
 
 .text-primary {
     color: #4C585B !important;
-}
-
-/* Footer Styles */
-.footer {
-    background-color: #f8f9fa;
-    border-top: 1px solid #eee;
-    font-size: 0.95rem;
-}
-
-.footer p {
-    color: #6c757d;
-    line-height: 1.6;
-}
-
-.footer-contact p {
-    margin-bottom: 0.5rem;
-}
-
-.footer-contact i {
-    color: #4C585B;
-    width: 20px;
-}
-
-.social-links {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-}
-
-.social-link {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    background-color: #4C585B;
-    color: white !important;
-    transition: all 0.3s ease;
-}
-
-.social-link:hover {
-    background-color: #3a4447;
-    transform: translateY(-3px);
-}
-
-.copyright {
-    color: #6c757d;
-    font-size: 0.9rem;
 }
 
 @media (max-width: 991px) {
@@ -594,13 +562,11 @@ main {
     }
 }
 
-/* Bölümler Arası Boşluk */
 .section-spacer {
     height: 120px;
     background: linear-gradient(to bottom, #fff 0%, #f8f9fa 100%);
 }
 
-/* Tıklanabilir Araç Kartı */
 .car-card-link {
     text-decoration: none;
     color: inherit;
@@ -622,7 +588,6 @@ main {
     padding: 15px;
 }
 
-/* Responsive ayarlar */
 @media (max-width: 991px) {
     .featured-cars {
         padding: 100px 0 140px;
@@ -655,7 +620,6 @@ main {
     }
 }
 
-/* Yönetici Giriş Sayfası */
 .login-container {
     min-height: calc(100vh - 300px);
     display: flex;
@@ -764,7 +728,6 @@ main {
     }
 }
 
-/* Marka Logoları Slider */
 .brand-slider {
     background: #fff;
     padding: 30px 0;
@@ -790,7 +753,6 @@ main {
     transition: all 0.3s ease;
 }
 
-/* Marka logoları için özel yükseklikler */
 .brand-item img[alt="Mercedes-Benz"] {
     max-height: 70px;
     width: auto;
@@ -846,7 +808,6 @@ main {
     }
 }
 
-/* Slider'ın başlangıç ve bitiş noktalarında yumuşak geçiş için */
 .brand-slider::before,
 .brand-slider::after {
     content: '';
@@ -877,7 +838,6 @@ main {
     }
 }
 
-/* Araç Yönetimi Sayfası Stilleri */
 .table-responsive {
     margin: 0;
     padding: 0;
@@ -945,7 +905,6 @@ main {
     padding: 15px 20px;
 }
 
-/* Tablo içindeki resimlerin hizalaması */
 .table td img.img-thumbnail {
     vertical-align: middle;
     object-fit: cover;
@@ -953,8 +912,32 @@ main {
     height: 50px;
 }
 
-/* İşlem butonlarının hizalaması */
 .table td .btn {
     padding: 5px 10px;
     margin: 0 2px;
+}
+
+main {
+    flex: 1 0 auto;
+    margin-bottom: 200px;
+}
+
+.top-header {
+    background-color: #373737;
+    color: #fff;
+    padding: 8px 0;
+}
+
+.top-header a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.top-header i {
+    color: #fff;
+    margin-right: 5px;
+}
+
+.top-header span {
+    font-size: 0.9rem;
 }
