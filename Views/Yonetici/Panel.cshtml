@@ -4,135 +4,324 @@
     ViewData["Title"] = "Yönetici Paneli";
 }
 
-<div class="container mt-4">
-    <div class="d-flex justify-content-between align-items-center mb-4">
-        <h2>Yönetici Paneli</h2>
-        <div>
-            <a asp-action="AracYonetimi" class="btn btn-primary me-2">Araçları Yönet</a>
-            <a asp-action="Cikis" class="btn btn-danger">Çıkış Yap</a>
-        </div>
-    </div>
-
-    @if (TempData["Success"] != null)
-    {
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
-            @TempData["Success"]
-            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-        </div>
-    }
-
-    @if (TempData["Error"] != null)
-    {
-        <div class="alert alert-danger alert-dismissible fade show" role="alert">
-            @TempData["Error"]
-            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-        </div>
-    }
-
-    <div class="card">
-        <div class="card-header">
+<div class="dashboard-container">
+    <div class="dashboard-header">
+        <div class="container">
             <div class="d-flex justify-content-between align-items-center">
-                <h5 class="mb-0">Kiralama Talepleri</h5>
-                <div class="btn-group">
-                    <button type="button" class="btn btn-outline-primary btn-sm filter-btn active" data-status="all">Tümü</button>
-                    <button type="button" class="btn btn-outline-warning btn-sm filter-btn" data-status="Beklemede">Bekleyenler</button>
-                    <button type="button" class="btn btn-outline-success btn-sm filter-btn" data-status="Onaylandı">Onaylananlar</button>
-                    <button type="button" class="btn btn-outline-danger btn-sm filter-btn" data-status="Reddedildi">Reddedilenler</button>
+                <h1 class="dashboard-title">Yönetici Paneli</h1>
+                <div>
+                    <a asp-action="AracYonetimi" class="btn btn-light btn-modern me-2">
+                        <i class="fas fa-car me-2"></i>Araçları Yönet
+                    </a>
+                    <a asp-action="Cikis" class="btn btn-danger btn-modern">
+                        <i class="fas fa-sign-out-alt me-2"></i>Çıkış Yap
+                    </a>
                 </div>
             </div>
         </div>
-        <div class="card-body">
-            @if (!Model.Any())
-            {
-                <div class="alert alert-info">
-                    Henüz kiralama talebi bulunmamaktadır.
+    </div>
+
+    <div class="container py-4">
+        @if (TempData["Success"] != null)
+        {
+            <div class="alert alert-success alert-modern fade show" role="alert">
+                <i class="fas fa-check-circle me-2"></i>
+                @TempData["Success"]
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            </div>
+        }
+
+        @if (TempData["Error"] != null)
+        {
+            <div class="alert alert-danger alert-modern fade show" role="alert">
+                <i class="fas fa-exclamation-circle me-2"></i>
+                @TempData["Error"]
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            </div>
+        }
+
+        <div class="card card-modern">
+            <div class="card-header">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h5 class="mb-0">Kiralama Talepleri</h5>
+                    <div class="filter-buttons">
+                        <button type="button" class="btn btn-filter active" data-status="all">
+                            <i class="fas fa-list me-2"></i>Tümü
+                        </button>
+                        <button type="button" class="btn btn-filter" data-status="Beklemede">
+                            <i class="fas fa-clock me-2"></i>Bekleyenler
+                        </button>
+                        <button type="button" class="btn btn-filter" data-status="Onaylandı">
+                            <i class="fas fa-check me-2"></i>Onaylananlar
+                        </button>
+                        <button type="button" class="btn btn-filter" data-status="Reddedildi">
+                            <i class="fas fa-times me-2"></i>Reddedilenler
+                        </button>
+                    </div>
                 </div>
-            }
-            else
-            {
-                <div class="table-responsive">
-                    <table class="table table-striped">
-                        <thead>
-                            <tr>
-                                <th>Araç</th>
-                                <th>Müşteri</th>
-                                <th>İletişim</th>
-                                <th>Tarihler</th>
-                                <th>Talep Tarihi</th>
-                                <th>Durum</th>
-                                <th>İşlemler</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach (var talep in Model)
-                            {
-                                <tr class="rental-row" data-status="@talep.Durum">
-                                    <td>@(talep.Arac != null ? $"{talep.Arac.Marka} {talep.Arac.Model}" : "Araç Bilgisi Yok")</td>
-                                    <td>@talep.MusteriAdi</td>
-                                    <td>
-                                        <small>
-                                            <div>@talep.MusteriEmail</div>
-                                            <div>@talep.MusteriTelefon</div>
-                                        </small>
-                                    </td>
-                                    <td>
-                                        <small>
-                                            <div>Başlangıç: @talep.BaslangicTarihi.ToShortDateString()</div>
-                                            <div>Bitiş: @talep.BitisTarihi.ToShortDateString()</div>
-                                        </small>
-                                    </td>
-                                    <td>@talep.TalepTarihi.ToShortDateString()</td>
-                                    <td>
-                                        <span class="badge bg-@(talep.Durum == "Beklemede" ? "warning" : 
-                                                              talep.Durum == "Onaylandı" ? "success" : "danger")">
-                                            @talep.Durum
-                                        </span>
-                                    </td>
-                                    <td>
-                                        <div class="btn-group">
-                                            @if (talep.Durum == "Beklemede")
-                                            {
-                                                <form asp-action="KiralamaDurumuGuncelle" method="post" class="me-1">
-                                                    <input type="hidden" name="id" value="@talep.Id" />
-                                                    <input type="hidden" name="durum" value="Onaylandı" />
-                                                    <button type="submit" class="btn btn-success btn-sm">
-                                                        <i class="fas fa-check"></i>
-                                                    </button>
-                                                </form>
-                                                <form asp-action="KiralamaDurumuGuncelle" method="post" class="me-1">
-                                                    <input type="hidden" name="id" value="@talep.Id" />
-                                                    <input type="hidden" name="durum" value="Reddedildi" />
-                                                    <button type="submit" class="btn btn-danger btn-sm">
-                                                        <i class="fas fa-times"></i>
-                                                    </button>
-                                                </form>
-                                            }
-                                            <form asp-action="KiralamaTalebiSil" method="post" onsubmit="return confirm('Bu kiralama talebini silmek istediğinizden emin misiniz?');">
-                                                <input type="hidden" name="id" value="@talep.Id" />
-                                                <button type="submit" class="btn btn-dark btn-sm">
-                                                    <i class="fas fa-trash"></i>
-                                                </button>
-                                            </form>
-                                        </div>
-                                    </td>
+            </div>
+            <div class="card-body">
+                @if (!Model.Any())
+                {
+                    <div class="alert alert-info alert-modern">
+                        <i class="fas fa-info-circle me-2"></i>
+                        Henüz kiralama talebi bulunmamaktadır.
+                    </div>
+                }
+                else
+                {
+                    <div class="table-responsive">
+                        <table class="table table-hover align-middle mb-0">
+                            <thead>
+                                <tr>
+                                    <th>Araç</th>
+                                    <th>Müşteri</th>
+                                    <th>İletişim</th>
+                                    <th>Tarihler</th>
+                                    <th>Talep Tarihi</th>
+                                    <th>Durum</th>
+                                    <th class="text-end">İşlemler</th>
                                 </tr>
-                            }
-                        </tbody>
-                    </table>
-                </div>
-            }
+                            </thead>
+                            <tbody>
+                                @foreach (var talep in Model)
+                                {
+                                    <tr class="rental-row" data-status="@talep.Durum">
+                                        <td><strong>@(talep.Arac != null ? $"{talep.Arac.Marka} {talep.Arac.Model}" : "Araç Bilgisi Yok")</strong></td>
+                                        <td>@talep.MusteriAdi</td>
+                                        <td>
+                                            <div class="contact-info">
+                                                <div><i class="fas fa-envelope me-2"></i>@talep.MusteriEmail</div>
+                                                <div><i class="fas fa-phone me-2"></i>@talep.MusteriTelefon</div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="date-info">
+                                                <div><i class="fas fa-calendar-alt me-2"></i>@talep.BaslangicTarihi.ToShortDateString()</div>
+                                                <div><i class="fas fa-calendar-check me-2"></i>@talep.BitisTarihi.ToShortDateString()</div>
+                                            </div>
+                                        </td>
+                                        <td>@talep.TalepTarihi.ToShortDateString()</td>
+                                        <td>
+                                            <span class="badge bg-@(talep.Durum == "Beklemede" ? "warning-soft" : 
+                                                                  talep.Durum == "Onaylandı" ? "success-soft" : "danger-soft")">
+                                                @talep.Durum
+                                            </span>
+                                        </td>
+                                        <td class="text-end">
+                                            <div class="btn-group">
+                                                @if (talep.Durum == "Beklemede")
+                                                {
+                                                    <form asp-action="KiralamaDurumuGuncelle" method="post" class="me-1">
+                                                        <input type="hidden" name="id" value="@talep.Id" />
+                                                        <input type="hidden" name="durum" value="Onaylandı" />
+                                                        <button type="submit" class="btn btn-success btn-sm btn-modern" title="Onayla">
+                                                            <i class="fas fa-check"></i>
+                                                        </button>
+                                                    </form>
+                                                    <form asp-action="KiralamaDurumuGuncelle" method="post" class="me-1">
+                                                        <input type="hidden" name="id" value="@talep.Id" />
+                                                        <input type="hidden" name="durum" value="Reddedildi" />
+                                                        <button type="submit" class="btn btn-danger btn-sm btn-modern" title="Reddet">
+                                                            <i class="fas fa-times"></i>
+                                                        </button>
+                                                    </form>
+                                                }
+                                                <form asp-action="KiralamaTalebiSil" method="post" onsubmit="return confirm('Bu kiralama talebini silmek istediğinizden emin misiniz?');">
+                                                    <input type="hidden" name="id" value="@talep.Id" />
+                                                    <button type="submit" class="btn btn-dark btn-sm btn-modern" title="Sil">
+                                                        <i class="fas fa-trash"></i>
+                                                    </button>
+                                                </form>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                }
+            </div>
         </div>
     </div>
 </div>
+
+<style>
+    .dashboard-container {
+        background-color: #f8f9fa;
+        min-height: calc(100vh - 60px);
+    }
+
+    .dashboard-header {
+        background: linear-gradient(135deg, #373737 0%, #4C585B 100%);
+        padding: 2rem 0;
+        margin-bottom: 2rem;
+        color: white;
+    }
+
+    .dashboard-title {
+        font-size: 1.8rem;
+        font-weight: 600;
+        margin: 0;
+    }
+
+    .btn-modern {
+        border-radius: 8px;
+        padding: 0.6rem 1.2rem;
+        font-weight: 500;
+        transition: all 0.3s ease;
+    }
+
+    .btn-modern:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+
+    .card-modern {
+        border: none;
+        border-radius: 12px;
+        box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+        overflow: hidden;
+    }
+
+    .card-header {
+        background-color: #fff;
+        border-bottom: 1px solid #eee;
+        padding: 1.2rem;
+    }
+
+    .filter-buttons {
+        display: flex;
+        gap: 0.5rem;
+    }
+
+    .btn-filter {
+        border: none;
+        background: none;
+        color: #6c757d;
+        padding: 0.5rem 1rem;
+        border-radius: 6px;
+        font-weight: 500;
+        transition: all 0.3s ease;
+    }
+
+    .btn-filter:hover {
+        background-color: #f8f9fa;
+        color: #4C585B;
+    }
+
+    .btn-filter.active {
+        color: white;
+    }
+
+    .btn-filter[data-status="Beklemede"].active {
+        background-color: #ff8c00;
+    }
+
+    .btn-filter[data-status="Onaylandı"].active {
+        background-color: #28a745;
+    }
+
+    .btn-filter[data-status="Reddedildi"].active {
+        background-color: #dc3545;
+    }
+
+    .btn-filter[data-status="all"].active {
+        background-color: #4C585B;
+    }
+
+    .table {
+        margin: 0;
+    }
+
+    .table thead tr {
+        background-color: #f8f9fa;
+    }
+
+    .table th {
+        font-weight: 600;
+        text-transform: uppercase;
+        font-size: 0.8rem;
+        letter-spacing: 0.5px;
+        padding: 1rem;
+        border-bottom: 2px solid #dee2e6;
+    }
+
+    .table td {
+        padding: 1rem;
+        vertical-align: middle;
+    }
+
+    .contact-info, .date-info {
+        font-size: 0.9rem;
+        color: #6c757d;
+    }
+
+    .badge {
+        padding: 0.5rem 0.8rem;
+        font-weight: 500;
+        border-radius: 6px;
+    }
+
+    .bg-success-soft {
+        background-color: rgba(40, 167, 69, 0.15);
+        color: #28a745;
+        border: 1px solid rgba(40, 167, 69, 0.3);
+    }
+
+    .bg-warning-soft {
+        background-color: rgba(255, 140, 0, 0.15);
+        color: #ff8c00;
+        border: 1px solid rgba(255, 140, 0, 0.3);
+    }
+
+    .bg-danger-soft {
+        background-color: rgba(220, 53, 69, 0.15);
+        color: #dc3545;
+        border: 1px solid rgba(220, 53, 69, 0.3);
+    }
+
+    .alert-modern {
+        border: none;
+        border-radius: 10px;
+        padding: 1rem 1.5rem;
+        margin-bottom: 1.5rem;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+
+    .btn-group .btn-modern {
+        padding: 0.4rem 0.8rem;
+    }
+
+    .btn-success.btn-modern {
+        background-color: #28a745;
+        border-color: #28a745;
+    }
+
+    .btn-success.btn-modern:hover {
+        background-color: #218838;
+        border-color: #218838;
+    }
+
+    .btn-danger.btn-modern {
+        background-color: #dc3545;
+        border-color: #dc3545;
+    }
+
+    .btn-danger.btn-modern:hover {
+        background-color: #c82333;
+        border-color: #c82333;
+    }
+</style>
 
 @section Scripts {
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             // Filtre butonları için event listener
-            document.querySelectorAll('.filter-btn').forEach(button => {
+            document.querySelectorAll('.btn-filter').forEach(button => {
                 button.addEventListener('click', function() {
                     // Aktif butonu güncelle
-                    document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+                    document.querySelectorAll('.btn-filter').forEach(btn => btn.classList.remove('active'));
                     this.classList.add('active');
                     
                     // Seçilen duruma göre satırları filtrele

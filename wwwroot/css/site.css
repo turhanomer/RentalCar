@@ -62,7 +62,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     font-weight: 500;
 }
 
-  html {
+html {
     height: 100%;
 }
 
@@ -292,11 +292,13 @@ body {
     margin: 0;
     position: relative;
     z-index: 1;
+    border: 2px solid transparent;
 }
 
 .featured-car-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+    box-shadow: 0 15px 30px rgba(179, 31, 36, 0.3);
+    border: 2px solid #b31f24;
 }
 
 .car-image {
@@ -592,7 +594,7 @@ body {
     .featured-cars {
         padding: 100px 0 140px;
     }
-    
+
     .car-image {
         height: 240px;
     }
