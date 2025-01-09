@@ -1,3 +1,8 @@
+# Mobil Team #
+- Ömer Turhan - 132230007
+- Emir Demirci - 1322300022
+- Kadir Doğru - 1322300024
+
 # **RentalCar - Araç Kiralama Uygulaması**
 <p style="font-family: 'Arial', sans-serif;"><i>Bu proje, Web Tabanlı Programlama dersinin dönem sonu projesi olarak geliştirilmiş bir araç kiralama platformudur. Kullanıcılar, mevcut araçları görüntüleyebilir, müsait araçlar için kiralama talebinde bulunabilir ve kiralama süresi ile maliyeti görüntüleyebilir. Admin, kullanıcı taleplerini kabul edebilir, reddedebilir veya bekletebilir. Ayrıca admin, araçları ekleyebilir, düzenleyebilir veya silebilir. </i></p>
 
