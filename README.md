@@ -1,4 +1,4 @@
-# Mobil Team #
+# Web Team #
 - Ömer Turhan - 132230007
 - Emir Demirci - 1322300022
 - Kadir Doğru - 1322300024
