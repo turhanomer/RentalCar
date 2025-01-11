@@ -231,71 +231,78 @@
     }
 </style>
 
-<!-- Yeni Araç Ekleme Modal -->
 <div class="modal fade" id="aracEkleModal" tabindex="-1">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-lg">
         <div class="modal-content">
-            <div class="modal-header">
+            <div class="modal-header bg-gradient">
                 <h5 class="modal-title">Yeni Araç Ekle</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
             </div>
             <form asp-action="AracEkle" method="post" enctype="multipart/form-data" id="aracEkleForm">
                 <div class="modal-body">
-                    <div class="mb-3">
-                        <label class="form-label">Marka</label>
-                        <input type="text" class="form-control" name="Marka" required maxlength="50">
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label">Model</label>
-                        <input type="text" class="form-control" name="Model" required maxlength="50">
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label">Yıl</label>
-                        <input type="number" class="form-control" name="Yil" required min="1900" max="2024">
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label">Günlük Fiyat</label>
-                        <div class="input-group">
-                            <span class="input-group-text">₺</span>
-                            <input type="number" step="0.01" class="form-control" name="GunlukFiyat" required min="0">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label class="form-label">Marka</label>
+                                <input type="text" class="form-control" name="Marka" required maxlength="50" placeholder="Örn: BMW">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Model</label>
+                                <input type="text" class="form-control" name="Model" required maxlength="50" placeholder="Örn: 320i">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Yıl</label>
+                                <input type="number" class="form-control" name="Yil" required min="1900" max="2024" placeholder="Örn: 2023">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Günlük Fiyat</label>
+                                <div class="input-group">
+                                    <input type="number" class="form-control" name="GunlukFiyat" required min="0" step="0.01" placeholder="Örn: 1500">
+                                    <span class="input-group-text">₺</span>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label">Araç Resmi</label>
-                        <input type="file" class="form-control" name="ResimDosyasi" accept="image/*" onchange="onResimSecildi(this)">
-                        <small class="text-muted">Desteklenen formatlar: JPG, JPEG, PNG, GIF (Maks. 5MB)</small>
-                        <div id="resimOnizleme" class="mt-2" style="display: none;">
-                            <img src="" alt="Seçilen Resim" class="img-thumbnail" style="max-height: 100px;">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label class="form-label">Kapasite</label>
+                                <select class="form-select" name="Kapasite" required>
+                                    <option value="">Seçiniz...</option>
+                                    <option value="2">2 Kişilik</option>
+                                    <option value="4">4 Kişilik</option>
+                                    <option value="5">5 Kişilik</option>
+                                    <option value="7">7 Kişilik</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Yakıt Türü</label>
+                                <select class="form-select" name="YakitTuru" required>
+                                    <option value="">Seçiniz...</option>
+                                    <option value="Benzin">Benzin</option>
+                                    <option value="Dizel">Dizel</option>
+                                    <option value="Elektrik">Elektrik</option>
+                                    <option value="Hibrit">Hibrit</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Vites Türü</label>
+                                <select class="form-select" name="VitesTuru" required>
+                                    <option value="">Seçiniz...</option>
+                                    <option value="Manuel">Manuel</option>
+                                    <option value="Otomatik">Otomatik</option>
+                                    <option value="Yarı Otomatik">Yarı Otomatik</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Araç Resmi</label>
+                                <input type="file" class="form-control" name="ResimDosyasi" accept="image/*">
+                                <small class="text-muted">Önerilen boyut: 800x600px, Max: 2MB</small>
+                            </div>
                         </div>
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label">Kapasite (Kişi)</label>
-                        <input type="number" class="form-control" name="Kapasite" required min="1" max="50">
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label">Yakıt Türü</label>
-                        <select class="form-select" name="YakitTuru" required>
-                            <option value="">Seçiniz</option>
-                            <option value="Benzin">Benzin</option>
-                            <option value="Dizel">Dizel</option>
-                            <option value="LPG">LPG</option>
-                            <option value="Elektrik">Elektrik</option>
-                            <option value="Hibrit">Hibrit</option>
-                        </select>
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label">Vites Türü</label>
-                        <select class="form-select" name="VitesTuru" required>
-                            <option value="">Seçiniz</option>
-                            <option value="Manuel">Manuel</option>
-                            <option value="Otomatik">Otomatik</option>
-                            <option value="Yarı Otomatik">Yarı Otomatik</option>
-                        </select>
                     </div>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">İptal</button>
-                    <button type="submit" class="btn btn-primary">Kaydet</button>
+                <div class="modal-footer bg-light">
+                    <button type="button" class="btn btn-secondary btn-modern" data-bs-dismiss="modal">İptal</button>
+                    <button type="submit" class="btn btn-success btn-modern">Kaydet</button>
                 </div>
             </form>
         </div>
@@ -392,7 +399,6 @@
             if (input.files && input.files[0]) {
                 const dosya = input.files[0];
                 
-                // Dosya boyutu kontrolü (5MB)
                 if (dosya.size > 5 * 1024 * 1024) {
                     alert('Resim boyutu 5MB\'dan küçük olmalıdır.');
                     input.value = '';
@@ -400,7 +406,6 @@
                     return;
                 }
 
-                // Dosya türü kontrolü
                 const gecerliTurler = ['image/jpeg', 'image/jpg', 'image/png', 'image/gif'];
                 if (!gecerliTurler.includes(dosya.type)) {
                     alert('Sadece JPG, JPEG, PNG ve GIF formatları desteklenmektedir.');
@@ -432,7 +437,6 @@
             document.getElementById('duzenleVitesTuru').value = vitesTuru;
             document.getElementById('duzenleMusait').checked = musait === true || musait === 'true';
 
-            // Mevcut resmi göster
             const resimOnizlemeDiv = document.getElementById('duzenleResimOnizleme');
             const resimOnizlemeImg = resimOnizlemeDiv.querySelector('img');
             if (resimUrl) {
@@ -463,7 +467,6 @@
             }
         }
 
-        // Form doğrulama
         document.getElementById('aracEkleForm').addEventListener('submit', function(e) {
             if (!this.checkValidity()) {
                 e.preventDefault();

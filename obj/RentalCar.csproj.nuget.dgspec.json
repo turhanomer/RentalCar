@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\dogru\\Desktop\\RentalCar\\RentalCar.csproj": {}
+    "C:\\Users\\omert\\Desktop\\arac-kiralama-web\\RentalCar.csproj": {}
   },
   "projects": {
-    "C:\\Users\\dogru\\Desktop\\RentalCar\\RentalCar.csproj": {
+    "C:\\Users\\omert\\Desktop\\arac-kiralama-web\\RentalCar.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\dogru\\Desktop\\RentalCar\\RentalCar.csproj",
+        "projectUniqueName": "C:\\Users\\omert\\Desktop\\arac-kiralama-web\\RentalCar.csproj",
         "projectName": "RentalCar",
-        "projectPath": "C:\\Users\\dogru\\Desktop\\RentalCar\\RentalCar.csproj",
-        "packagesPath": "C:\\Users\\dogru\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\dogru\\Desktop\\RentalCar\\obj\\",
+        "projectPath": "C:\\Users\\omert\\Desktop\\arac-kiralama-web\\RentalCar.csproj",
+        "packagesPath": "C:\\Users\\omert\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\omert\\Desktop\\arac-kiralama-web\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\dogru\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\omert\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -80,7 +80,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
