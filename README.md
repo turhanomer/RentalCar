@@ -6,6 +6,8 @@
 # **RentalCar - Araç Kiralama Uygulaması**
 <p style="font-family: 'Arial', sans-serif;"><i>Bu proje, Web Tabanlı Programlama dersinin dönem sonu projesi olarak geliştirilmiş bir araç kiralama platformudur. Kullanıcılar, mevcut araçları görüntüleyebilir, müsait araçlar için kiralama talebinde bulunabilir ve kiralama süresi ile maliyeti görüntüleyebilir. Admin, kullanıcı taleplerini kabul edebilir, reddedebilir veya bekletebilir. Ayrıca admin, araçları ekleyebilir, düzenleyebilir veya silebilir. </i></p>
 
+### Web Tabanlı Programlama Videosu
+
 Aşağıdaki linke tıklayarak proje videosunu izleyebilirsiniz: 
 
 ⬇️⬇️⬇️  
